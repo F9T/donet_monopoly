@@ -57,6 +57,7 @@
     <Compile Include="CaseDataTemplateSelector.cs" />
     <Compile Include="Interfaces\IModel.cs" />
     <Compile Include="Interfaces\IViewModel.cs" />
+    <Compile Include="Models\Cases\EnumCaseOrientation.cs" />
     <Compile Include="Models\Cases\PropertyCase.cs" />
     <Compile Include="Models\Cases\StartCase.cs" />
     <Compile Include="Point.cs" />
