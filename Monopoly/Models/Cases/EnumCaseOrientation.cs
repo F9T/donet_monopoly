@@ -2,9 +2,13 @@
 {
     public enum EnumCaseOrientation
     {
-        Vertical,
-        VerticalReverse,
-        Horizontal,
-        HorizontalReverse
+        North,
+        NorthEast,
+        East,
+        SouthEast,
+        South,
+        SouthWest,
+        West,
+        NortWest
     }
 }

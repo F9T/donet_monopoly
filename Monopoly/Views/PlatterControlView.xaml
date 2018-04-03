@@ -1,0 +1,79 @@
+﻿<UserControl x:Class="Monopoly.Views.PlatterControlView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Monopoly.Views"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid x:Name="PlatterGrid" Background="#D9E9CE">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition Width="120"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"/>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition Height="120"/>
+        </Grid.RowDefinitions>
+        <local:MiddlePlatterView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="9" Grid.RowSpan="9" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <local:CaseView Grid.Row="0" Grid.Column="0" Case="{Binding PlatterViewModel.Platter.Cases[0]}" Orientation="SouthEast"/>
+        <local:CaseView Grid.Row="0" Grid.Column="1" Case="{Binding PlatterViewModel.Platter.Cases[1]}" Orientation="South"/>
+        <local:CaseView Grid.Row="0" Grid.Column="2" Case="{Binding PlatterViewModel.Platter.Cases[2]}" Orientation="South" />
+        <local:CaseView Grid.Row="0" Grid.Column="3" Case="{Binding PlatterViewModel.Platter.Cases[3]}" Orientation="South" />
+        <local:CaseView Grid.Row="0" Grid.Column="4" Case="{Binding PlatterViewModel.Platter.Cases[4]}" Orientation="South" />
+        <local:CaseView Grid.Row="0" Grid.Column="5" Case="{Binding PlatterViewModel.Platter.Cases[5]}" Orientation="South" />
+        <local:CaseView Grid.Row="0" Grid.Column="6" Case="{Binding PlatterViewModel.Platter.Cases[6]}" Orientation="South" />
+        <local:CaseView Grid.Row="0" Grid.Column="7" Case="{Binding PlatterViewModel.Platter.Cases[7]}" Orientation="South" />
+        <local:CaseView Grid.Row="0" Grid.Column="8" Case="{Binding PlatterViewModel.Platter.Cases[8]}" Orientation="South" />
+        <local:CaseView Grid.Row="0" Grid.Column="9" Case="{Binding PlatterViewModel.Platter.Cases[9]}" Orientation="South" />
+        <local:CaseView Grid.Row="0" Grid.Column="10" Case="{Binding PlatterViewModel.Platter.Cases[10]}" Orientation="SouthWest" />
+        <local:CaseView Grid.Row="1" Grid.Column="0" Case="{Binding PlatterViewModel.Platter.Cases[11]}" Orientation="East" />
+        <local:CaseView Grid.Row="1" Grid.Column="10" Case="{Binding PlatterViewModel.Platter.Cases[12]}" Orientation="West" />
+        <local:CaseView Grid.Row="2" Grid.Column="0" Case="{Binding PlatterViewModel.Platter.Cases[13]}" Orientation="East" />
+        <local:CaseView Grid.Row="2" Grid.Column="10" Case="{Binding PlatterViewModel.Platter.Cases[14]}" Orientation="West" />
+        <local:CaseView Grid.Row="3" Grid.Column="0" Case="{Binding PlatterViewModel.Platter.Cases[15]}" Orientation="East" />
+        <local:CaseView Grid.Row="3" Grid.Column="10" Case="{Binding PlatterViewModel.Platter.Cases[16]}" Orientation="West" />
+        <local:CaseView Grid.Row="4" Grid.Column="0" Case="{Binding PlatterViewModel.Platter.Cases[17]}" Orientation="East" />
+        <local:CaseView Grid.Row="4" Grid.Column="10" Case="{Binding PlatterViewModel.Platter.Cases[18]}" Orientation="West" />
+        <local:CaseView Grid.Row="5" Grid.Column="0" Case="{Binding PlatterViewModel.Platter.Cases[19]}" Orientation="East" />
+        <local:CaseView Grid.Row="5" Grid.Column="10" Case="{Binding PlatterViewModel.Platter.Cases[20]}" Orientation="West" />
+        <local:CaseView Grid.Row="6" Grid.Column="0" Case="{Binding PlatterViewModel.Platter.Cases[21]}" Orientation="East" />
+        <local:CaseView Grid.Row="6" Grid.Column="10" Case="{Binding PlatterViewModel.Platter.Cases[22]}" Orientation="West"/>
+        <local:CaseView Grid.Row="7" Grid.Column="0" Case="{Binding PlatterViewModel.Platter.Cases[23]}" Orientation="East" />
+        <local:CaseView Grid.Row="7" Grid.Column="10" Case="{Binding PlatterViewModel.Platter.Cases[24]}" Orientation="West" />
+        <local:CaseView Grid.Row="8" Grid.Column="0" Case="{Binding PlatterViewModel.Platter.Cases[25]}" Orientation="East" />
+        <local:CaseView Grid.Row="8" Grid.Column="10" Case="{Binding PlatterViewModel.Platter.Cases[26]}" Orientation="West" />
+        <local:CaseView Grid.Row="9" Grid.Column="0" Case="{Binding PlatterViewModel.Platter.Cases[27]}" Orientation="East" />
+        <local:CaseView Grid.Row="9" Grid.Column="10" Case="{Binding PlatterViewModel.Platter.Cases[28]}" Orientation="West" />
+        <local:CaseView Grid.Row="10" Grid.Column="0" Case="{Binding PlatterViewModel.Platter.Cases[29]}" Orientation="NorthEast" />
+        <local:CaseView Grid.Row="10" Grid.Column="1" Case="{Binding PlatterViewModel.Platter.Cases[30]}" Orientation="North" />
+        <local:CaseView Grid.Row="10" Grid.Column="2" Case="{Binding PlatterViewModel.Platter.Cases[31]}" Orientation="North" />
+        <local:CaseView Grid.Row="10" Grid.Column="3" Case="{Binding PlatterViewModel.Platter.Cases[32]}" Orientation="North" />
+        <local:CaseView Grid.Row="10" Grid.Column="4" Case="{Binding PlatterViewModel.Platter.Cases[33]}" Orientation="North" />
+        <local:CaseView Grid.Row="10" Grid.Column="5" Case="{Binding PlatterViewModel.Platter.Cases[34]}" Orientation="North" />
+        <local:CaseView Grid.Row="10" Grid.Column="6" Case="{Binding PlatterViewModel.Platter.Cases[35]}" Orientation="North" />
+        <local:CaseView Grid.Row="10" Grid.Column="7" Case="{Binding PlatterViewModel.Platter.Cases[36]}" Orientation="North" />
+        <local:CaseView Grid.Row="10" Grid.Column="8" Case="{Binding PlatterViewModel.Platter.Cases[37]}" Orientation="North" />
+        <local:CaseView Grid.Row="10" Grid.Column="9" Case="{Binding PlatterViewModel.Platter.Cases[38]}" Orientation="North" />
+        <local:CaseView Grid.Row="10" Grid.Column="10" Case="{Binding PlatterViewModel.Platter.Cases[39]}" Orientation="NortWest"/>
+    </Grid>
+</UserControl>

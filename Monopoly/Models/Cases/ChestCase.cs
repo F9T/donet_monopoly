@@ -1,19 +1,19 @@
 ﻿using System;
-using System.Xml.Serialization;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Monopoly.Models.Cases
 {
-    [Serializable]
-    public class StartCase : AbstractCase
+    public class ChestCase : TextImageCase
     {
-        public StartCase()
+        public ChestCase()
         {
             //Default values
-            Text = "START";
+            Text = "COMMUNITY CHEST";
+            ImagePath = "../Images/chest.png";
         }
-
-        [XmlAttribute("text")]
-        public string Text { get; set; }
 
         public override void Action()
         {

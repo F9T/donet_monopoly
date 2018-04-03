@@ -54,29 +54,36 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="CaseDataTemplateSelector.cs" />
     <Compile Include="Interfaces\IModel.cs" />
     <Compile Include="Interfaces\IViewModel.cs" />
+    <Compile Include="Models\Cases\ChanceCase.cs" />
+    <Compile Include="Models\Cases\ChestCase.cs" />
     <Compile Include="Models\Cases\EnumCaseOrientation.cs" />
+    <Compile Include="Models\Cases\JailCase.cs" />
     <Compile Include="Models\Cases\PropertyCase.cs" />
     <Compile Include="Models\Cases\StartCase.cs" />
-    <Compile Include="Point.cs" />
+    <Compile Include="Models\Cases\TextImageCase.cs" />
+    <Compile Include="Models\Platter.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PlatterViewModel.cs" />
     <Compile Include="Views\CaseView.xaml.cs">
       <DependentUpon>CaseView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\MiddlePaltterView.xaml.cs">
-      <DependentUpon>MiddlePaltterView.xaml</DependentUpon>
+    <Compile Include="Views\MiddlePlatterView.xaml.cs">
+      <DependentUpon>MiddlePlatterView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PlatterControl.xaml.cs">
-      <DependentUpon>PlatterControl.xaml</DependentUpon>
+    <Compile Include="Views\PlatterControlView.xaml.cs">
+      <DependentUpon>PlatterControlView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Styles\CaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CaseView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MiddlePaltterView.xaml">
+    <Page Include="Views\MiddlePlatterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -100,13 +107,12 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\PlatterControl.xaml">
+    <Page Include="Views\PlatterControlView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Platter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -133,7 +139,13 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Styles\" />
+    <Resource Include="Images\chest.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\clover.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\handcuffs.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

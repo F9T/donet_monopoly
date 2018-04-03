@@ -1,5 +1,7 @@
-﻿using System.Windows;
-using Monopoly.Interfaces;
+﻿using System;
+using System.Windows;
+using System.Windows.Input;
+using Monopoly.Models;
 using Monopoly.Models.Cases;
 
 namespace Monopoly.Views
@@ -12,9 +14,22 @@ namespace Monopoly.Views
         public CaseView()
         {
             InitializeComponent();
-            DataContext = this;
         }
 
-        public AbstractCase Case { get; set; }
+        public static readonly DependencyProperty CaseProperty = DependencyProperty.Register("Case", typeof(AbstractCase), typeof(CaseView), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+
+        public AbstractCase Case
+        {
+            get => (AbstractCase) GetValue(CaseProperty);
+            set => SetValue(CaseProperty, value);
+        }
+
+        public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register("Orientation", typeof(EnumCaseOrientation), typeof(CaseView));
+
+        public EnumCaseOrientation Orientation
+        {
+            get => (EnumCaseOrientation)GetValue(OrientationProperty);
+            set => SetValue(OrientationProperty, value);
+        }
     }
 }

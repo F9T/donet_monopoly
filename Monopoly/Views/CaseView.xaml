@@ -3,56 +3,68 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Monopoly.Views"
+             xmlns:local="clr-namespace:Monopoly.Views" Style="{StaticResource StyleCase}"
              xmlns:cases="clr-namespace:Monopoly.Models.Cases"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+>
     <UserControl.Resources>
-        <DataTemplate DataType="{x:Type cases:PropertyCase}">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
-                    <RowDefinition Height="*"/>
-                    <RowDefinition Height="20"/>
-                </Grid.RowDefinitions>
-                <Border Background="{Binding Color}" Grid.Row="0"/>
-                <TextBlock Text="{Binding PropertyName}" Grid.Row="1"/>
-                <TextBlock Text="{Binding Price}" Grid.Row="2"/>
-            </Grid>
-        </DataTemplate>
-        <DataTemplate DataType="{x:Type cases:StartCase}">
-            <Grid>
-                <TextBlock Text="START" />
-            </Grid>
-        </DataTemplate>
     </UserControl.Resources>
-    <ContentControl Content="{Binding Case}">
-        <ContentControl.Style>
-            <Style TargetType="ContentControl">
-                <Style.Triggers>
-                    <DataTrigger Binding="{Binding Case.Orientation}" Value="{x:Static cases:EnumCaseOrientation.Horizontal}">
-                        <Setter Property="LayoutTransform">
-                            <Setter.Value>
-                                <RotateTransform Angle="90"/>
-                            </Setter.Value>
-                        </Setter>
-                    </DataTrigger>
-                    <DataTrigger Binding="{Binding Case.Orientation}" Value="{x:Static cases:EnumCaseOrientation.HorizontalReverse}">
-                        <Setter Property="LayoutTransform">
-                            <Setter.Value>
-                                <RotateTransform Angle="-90"/>
-                            </Setter.Value>
-                        </Setter>
-                    </DataTrigger>
-                    <DataTrigger Binding="{Binding Case.Orientation}" Value="{x:Static cases:EnumCaseOrientation.VerticalReverse}">
-                        <Setter Property="LayoutTransform">
-                            <Setter.Value>
-                                <RotateTransform Angle="180"/>
-                            </Setter.Value>
-                        </Setter>
-                    </DataTrigger>
-                </Style.Triggers>
-            </Style>
-        </ContentControl.Style>
-    </ContentControl>
+    <Border BorderBrush="Black" BorderThickness="1">
+        <ContentControl Content="{Binding Case, RelativeSource={RelativeSource AncestorType={x:Type local:CaseView}}}">
+            <ContentControl.Style>
+                <Style TargetType="ContentControl">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType={x:Type local:CaseView}}}" Value="{x:Static cases:EnumCaseOrientation.NorthEast}">
+                            <Setter Property="LayoutTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="45"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType={x:Type local:CaseView}}}" Value="{x:Static cases:EnumCaseOrientation.East}">
+                            <Setter Property="LayoutTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="90"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType={x:Type local:CaseView}}}" Value="{x:Static cases:EnumCaseOrientation.SouthEast}">
+                            <Setter Property="LayoutTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="125"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType={x:Type local:CaseView}}}" Value="{x:Static cases:EnumCaseOrientation.South}">
+                            <Setter Property="LayoutTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="180"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType={x:Type local:CaseView}}}" Value="{x:Static cases:EnumCaseOrientation.SouthWest}">
+                            <Setter Property="LayoutTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="-125"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType={x:Type local:CaseView}}}" Value="{x:Static cases:EnumCaseOrientation.West}">
+                            <Setter Property="LayoutTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="-90"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding Orientation, RelativeSource={RelativeSource AncestorType={x:Type local:CaseView}}}" Value="{x:Static cases:EnumCaseOrientation.NortWest}">
+                            <Setter Property="LayoutTransform">
+                                <Setter.Value>
+                                    <RotateTransform Angle="-45"/>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ContentControl.Style>
+        </ContentControl>
+    </Border>
 </UserControl>

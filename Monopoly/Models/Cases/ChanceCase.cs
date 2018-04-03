@@ -4,20 +4,18 @@ using System.Xml.Serialization;
 namespace Monopoly.Models.Cases
 {
     [Serializable]
-    public class StartCase : AbstractCase
+    public class ChanceCase : TextImageCase
     {
-        public StartCase()
+        public ChanceCase()
         {
             //Default values
-            Text = "START";
+            Text = "CHANCE";
+            ImagePath = "../Images/clover.png";
         }
-
-        [XmlAttribute("text")]
-        public string Text { get; set; }
 
         public override void Action()
         {
-            
+            throw new NotImplementedException();
         }
 
         public override bool IsLegal()

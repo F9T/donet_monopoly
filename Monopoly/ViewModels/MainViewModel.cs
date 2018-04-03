@@ -6,6 +6,13 @@ namespace Monopoly.ViewModels
 {
     public class MainViewModel : IViewModel
     {
+        public MainViewModel()
+        {
+            PlatterViewModel = new PlatterViewModel();
+            PlatterViewModel.Deserialize(@"D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\PlatterExample\example.xml");
+        }
+
+        public PlatterViewModel PlatterViewModel { get; set; }
 
         public void Dispose()
         {

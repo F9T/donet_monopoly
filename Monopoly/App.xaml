@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:Monopoly"
              StartupUri="Windows/MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="pack://application:,,,/Styles/CaseStyle.xaml"/>
     </Application.Resources>
 </Application>

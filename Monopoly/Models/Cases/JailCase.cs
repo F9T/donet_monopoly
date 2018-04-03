@@ -1,19 +1,20 @@
 ﻿using System;
-using System.Xml.Serialization;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Monopoly.Models.Cases
 {
     [Serializable]
-    public class StartCase : AbstractCase
+    public class JailCase : TextImageCase
     {
-        public StartCase()
+        public JailCase()
         {
             //Default values
-            Text = "START";
+            Text = "GO TO JAIL";
+            ImagePath = "../Images/handcuffs.png";
         }
-
-        [XmlAttribute("text")]
-        public string Text { get; set; }
 
         public override void Action()
         {

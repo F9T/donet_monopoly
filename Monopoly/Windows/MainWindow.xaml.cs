@@ -12,6 +12,7 @@ namespace Monopoly.Windows
         {
             InitializeComponent();
             Initialize();
+            DataContext = MainViewModel;
         }
 
         private void Initialize()

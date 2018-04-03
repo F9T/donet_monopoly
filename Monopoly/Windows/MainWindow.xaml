@@ -5,9 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Monopoly"
         xmlns:views="clr-namespace:Monopoly.Views"
-        mc:Ignorable="d" Height="350" Width="525"
-        Title="Monopoly">
+        mc:Ignorable="d" Height="800" Width="800"
+        Title="Monopoly" WindowStartupLocation="CenterScreen">
     <Grid>
-        <views:PlatterControl />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Menu IsMainMenu="True" Grid.Row="0">
+            <MenuItem Header="Game">
+                <MenuItem Header="New" />
+            </MenuItem>
+        </Menu>
+        <views:PlatterControlView Grid.Row="1" />
     </Grid>
 </Window>
