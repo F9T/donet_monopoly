@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Input;
-using Monopoly.Models;
-using Monopoly.Models.Cases;
-
-namespace Monopoly.Views
+﻿namespace Monopoly.Views
 {
     /// <summary>
     /// Logique d'interaction pour PlatterControlView.xaml

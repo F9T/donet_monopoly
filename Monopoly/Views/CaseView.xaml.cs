@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Input;
-using Monopoly.Models;
+﻿using System.Windows;
 using Monopoly.Models.Cases;
 
 namespace Monopoly.Views

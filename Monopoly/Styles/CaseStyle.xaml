@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cases="clr-namespace:Monopoly.Models.Cases"
 >
+    <!-- START STYLE CASE -->
     <Style x:Key="StyleCase" TargetType="{x:Type Control}">
         <Setter Property="FontFamily" Value="Verdana"/>
         <Setter Property="FontSize" Value="8"/>
@@ -11,8 +12,11 @@
     <Style TargetType="{x:Type TextBlock}">
         <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
+    
+    <!-- END STYLE CASE -->
+    
     <!-- start TEXT_IMAGE template -->
-    <DataTemplate x:Key="TextImageTemplate">
+    <DataTemplate x:Key="TextImageCaseTemplate">
         <Grid Margin="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="40"/>
@@ -22,25 +26,73 @@
             <Image Source="{Binding ImagePath}" VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="36" MaxHeight="36" Grid.Row="1"/>
         </Grid>
     </DataTemplate>
-    <DataTemplate DataType="{x:Type cases:ChanceCase}">
-        <Grid>
-            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageTemplate}"></ContentPresenter>
-        </Grid>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type cases:JailCase}">
-        <Grid>
-            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageTemplate}"></ContentPresenter>
-        </Grid>
-    </DataTemplate>
-    <DataTemplate DataType="{x:Type cases:ChestCase}">
-        <Grid>
-            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageTemplate}"></ContentPresenter>
+
+    <!-- end TEXT_IMAGE template -->
+
+    <!-- start PRICE_TEXT_IMAGE template -->
+
+    <DataTemplate x:Key="PriceTextImageCaseTemplate">
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="20"/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="{Binding Text}" HorizontalAlignment="Center" Grid.Row="0" />
+            <Image Source="{Binding ImagePath}" VerticalAlignment="Center" HorizontalAlignment="Center" MaxWidth="36" MaxHeight="36" Grid.Row="1"/>
+            <TextBlock Text="{Binding Price}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" />
         </Grid>
     </DataTemplate>
     
-    <!-- end TEXT_IMAGE template -->
+    <!-- end PRICE_TEXT_IMAGE template -->
 
-    <!-- start PROPERTY template -->
+    <!-- start CHANCE CASE template -->
+
+    <DataTemplate DataType="{x:Type cases:ChanceCase}">
+        <Grid>
+            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageCaseTemplate}" />
+        </Grid>
+    </DataTemplate>
+    
+    <!-- end CHANCE CASE template -->
+
+    <!-- start JAIL CASE template -->
+    
+    <DataTemplate DataType="{x:Type cases:JailCase}">
+        <Grid>
+            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageCaseTemplate}" />
+        </Grid>
+    </DataTemplate>
+    
+    <!-- end JAIL CASE template -->
+
+    <!-- start STATION CASE template -->
+
+    <DataTemplate DataType="{x:Type cases:StationCase}">
+        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource PriceTextImageCaseTemplate}" />
+    </DataTemplate>
+
+    <!-- end STATION CASE template -->
+
+    <!-- start TAX CASE template -->
+
+    <DataTemplate DataType="{x:Type cases:TaxCase}">
+        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource PriceTextImageCaseTemplate}" />
+    </DataTemplate>
+
+    <!-- end TAX CASE template -->
+
+    <!-- start CHEST CASE template -->
+
+    <DataTemplate DataType="{x:Type cases:ChestCase}">
+        <Grid>
+            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageCaseTemplate}"></ContentPresenter>
+        </Grid>
+    </DataTemplate>
+
+    <!-- end CHEST CASE template -->
+
+    <!-- start PROPERTY CASE template -->
     
     <DataTemplate DataType="{x:Type cases:PropertyCase}">
         <Grid>
@@ -55,9 +107,9 @@
         </Grid>
     </DataTemplate>
     
-    <!-- end PROPERTY template -->
+    <!-- end PROPERTY CASE template -->
 
-    <!-- start START template -->
+    <!-- start START CASE template -->
     
     <DataTemplate DataType="{x:Type cases:StartCase}">
         <Grid Margin="5">
@@ -65,5 +117,5 @@
         </Grid>
     </DataTemplate>
 
-    <!-- end START template -->
+    <!-- end START CASE template -->
 </ResourceDictionary>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Xml.Serialization;
 using Monopoly.Interfaces;
+using Monopoly.Models.Cases.Categories;
 
 namespace Monopoly.Models.Cases
 {

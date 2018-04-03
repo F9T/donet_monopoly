@@ -15,6 +15,9 @@ namespace Monopoly.Models.Cases
         [XmlAttribute("text")]
         public string Text { get; set; }
 
+        [XmlAttribute("gain")]
+        public int Gain { get; set; }
+
         public override void Action()
         {
             

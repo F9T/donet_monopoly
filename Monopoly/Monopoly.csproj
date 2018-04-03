@@ -56,13 +56,16 @@
     </ApplicationDefinition>
     <Compile Include="Interfaces\IModel.cs" />
     <Compile Include="Interfaces\IViewModel.cs" />
+    <Compile Include="Models\Cases\Categories\PriceTextImageCase.cs" />
     <Compile Include="Models\Cases\ChanceCase.cs" />
     <Compile Include="Models\Cases\ChestCase.cs" />
     <Compile Include="Models\Cases\EnumCaseOrientation.cs" />
     <Compile Include="Models\Cases\JailCase.cs" />
     <Compile Include="Models\Cases\PropertyCase.cs" />
     <Compile Include="Models\Cases\StartCase.cs" />
-    <Compile Include="Models\Cases\TextImageCase.cs" />
+    <Compile Include="Models\Cases\StationCase.cs" />
+    <Compile Include="Models\Cases\TaxCase.cs" />
+    <Compile Include="Models\Cases\Categories\TextImageCase.cs" />
     <Compile Include="Models\Platter.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PlatterViewModel.cs" />
@@ -146,6 +149,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\handcuffs.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\train.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\tax.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

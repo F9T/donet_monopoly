@@ -4,15 +4,8 @@ using Monopoly.Models.Cases.Categories;
 namespace Monopoly.Models.Cases
 {
     [Serializable]
-    public class ChanceCase : TextImageCase
+    public class StationCase : PriceTextImageCase
     {
-        public ChanceCase()
-        {
-            //Default values
-            Text = "CHANCE";
-            ImagePath = "../Images/clover.png";
-        }
-
         public override void Action()
         {
             throw new NotImplementedException();

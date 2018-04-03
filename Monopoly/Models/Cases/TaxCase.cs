@@ -4,14 +4,8 @@ using Monopoly.Models.Cases.Categories;
 namespace Monopoly.Models.Cases
 {
     [Serializable]
-    public class ChanceCase : TextImageCase
+    public class TaxCase : PriceTextImageCase
     {
-        public ChanceCase()
-        {
-            //Default values
-            Text = "CHANCE";
-            ImagePath = "../Images/clover.png";
-        }
 
         public override void Action()
         {
@@ -20,7 +14,7 @@ namespace Monopoly.Models.Cases
 
         public override bool IsLegal()
         {
-            return true;
+            throw new NotImplementedException();
         }
     }
 }

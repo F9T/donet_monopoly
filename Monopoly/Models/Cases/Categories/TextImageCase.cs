@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Xml.Serialization;
 
-namespace Monopoly.Models.Cases
+namespace Monopoly.Models.Cases.Categories
 {
     [Serializable]
+    [XmlInclude(typeof(PriceTextImageCase))]
     [XmlInclude(typeof(ChanceCase))]
     [XmlInclude(typeof(JailCase))]
     [XmlInclude(typeof(ChestCase))]
