@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.27004.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monopoly", "Monopoly.csproj", "{3ABB15DB-73BC-4BA3-9E35-413A850DFD48}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonopolyCommon", "..\MonopolyCommon\MonopolyCommon.csproj", "{46C06068-DE54-434D-9816-0AF60378A4DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonopolyEditor", "MonopolyEditor\MonopolyEditor.csproj", "{321B075A-5A30-420C-BF63-2E493D8675BE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{3ABB15DB-73BC-4BA3-9E35-413A850DFD48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3ABB15DB-73BC-4BA3-9E35-413A850DFD48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3ABB15DB-73BC-4BA3-9E35-413A850DFD48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46C06068-DE54-434D-9816-0AF60378A4DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46C06068-DE54-434D-9816-0AF60378A4DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46C06068-DE54-434D-9816-0AF60378A4DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46C06068-DE54-434D-9816-0AF60378A4DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{321B075A-5A30-420C-BF63-2E493D8675BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{321B075A-5A30-420C-BF63-2E493D8675BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{321B075A-5A30-420C-BF63-2E493D8675BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{321B075A-5A30-420C-BF63-2E493D8675BE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="Monopoly.Views.CaseView"
+﻿<UserControl x:Class="MonopolyEditor.Views.CaseView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:views="clr-namespace:Monopoly.Views"
+             xmlns:views="clr-namespace:MonopolyEditor.Views"
              xmlns:cases="clr-namespace:MonopolyCommon.Cases;assembly=MonopolyCommon"
              xmlns:monopolyCommon="clr-namespace:MonopolyCommon;assembly=MonopolyCommon">
     <UserControl.Resources>
@@ -18,6 +18,15 @@
         />
     </UserControl.Resources>
     <Border BorderBrush="Black" BorderThickness="1">
+        <Border.Style>
+            <Style TargetType="Border">
+                <Style.Triggers>
+                    <DataTrigger Binding="{Binding Case.Selected, RelativeSource={RelativeSource AncestorType={x:Type views:CaseView}}}" Value="True">
+                        <Setter Property="Background" Value="DarkSlateGray"/>
+                    </DataTrigger>
+                </Style.Triggers>
+            </Style>
+        </Border.Style>
         <ContentControl Content="{Binding Case, RelativeSource={RelativeSource AncestorType={x:Type views:CaseView}}}" ContentTemplateSelector="{StaticResource DataTemplateCaseSelector}">
             <ContentControl.Style>
                 <Style TargetType="ContentControl">

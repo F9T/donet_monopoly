@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Monopoly.Views
+namespace MonopolyEditor.Views
 {
     /// <summary>
     /// Logique d'interaction pour PlatterControlView.xaml

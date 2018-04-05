@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using MonopolyCommon.Cases;
 
-namespace Monopoly.Views
+namespace MonopolyEditor.Views
 {
     /// <summary>
     /// Logique d'interaction pour CaseView.xaml

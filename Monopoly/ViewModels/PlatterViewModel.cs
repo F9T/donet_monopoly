@@ -1,9 +1,7 @@
 ﻿using System.ComponentModel;
-using System.IO;
 using System.Runtime.CompilerServices;
-using System.Xml.Serialization;
 using Monopoly.Interfaces;
-using Monopoly.Models;
+using MonopolyCommon;
 
 namespace Monopoly.ViewModels
 {
@@ -19,20 +17,12 @@ namespace Monopoly.ViewModels
 
         public void Serialize(string _path)
         {
-            var serializer = new XmlSerializer(typeof(Platter));
-            using (var sw = new StreamWriter(_path))
-            {
-                serializer.Serialize(sw, Platter);
-            }
+            PlatterSerializer.Serialize(Platter);
         }
 
         public void Deserialize(string _path)
         {
-            var serializer = new XmlSerializer(typeof(Platter));
-            using (var sr = new StreamReader(_path))
-            {
-                Platter = (Platter) serializer.Deserialize(sr);
-            }
+            Platter = PlatterSerializer.Deserialize(_path);
         }
 
         public void Dispose()

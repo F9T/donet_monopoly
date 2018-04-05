@@ -1,0 +1,142 @@
+﻿<ResourceDictionary
+    x:Class="MonopolyCommon.CaseEditTemplate"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cases="clr-namespace:MonopolyCommon.Cases"
+    xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+    
+    <!-- start TEXT_IMAGE template -->
+    <DataTemplate x:Key="TextImageCaseTemplate">
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Text : " VerticalAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Text}" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Image path : " VerticalAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ImagePath}" IsEnabled="False" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+            <!--<Image Source="{Binding ImagePath}" VerticalAlignment="Center" HorizontalAlignment="Center" />-->
+            <Button Grid.Row="1" Grid.Column="2" Content="Browse" Height="25" Width="70" Tag="{Binding .}" Click="BrowseImage_OnClick" VerticalAlignment="Center"/>
+        </Grid>
+    </DataTemplate>
+
+    <!-- end TEXT_IMAGE template -->
+
+    <!-- start PRICE_TEXT_IMAGE template -->
+
+    <DataTemplate x:Key="PriceTextImageCaseTemplate">
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="80"/>
+                <ColumnDefinition />
+                <ColumnDefinition Width="80"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Text : " VerticalAlignment="Center"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Text}" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Image path : " VerticalAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ImagePath}" IsEnabled="False" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+            <!--<Image Source="{Binding ImagePath}" VerticalAlignment="Center" HorizontalAlignment="Center" />-->
+            <Button Grid.Row="1" Grid.Column="2" Content="Browse" Height="25" Width="70" VerticalAlignment="Center"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Price : " VerticalAlignment="Center"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Price}" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+        </Grid>
+    </DataTemplate>
+    
+    <!-- end PRICE_TEXT_IMAGE template -->
+
+    <!-- start CHANCE CASE template -->
+
+    <DataTemplate x:Key="ChanceEditCaseTemplate" DataType="{x:Type cases:ChanceCase}">
+        <Grid>
+            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageCaseTemplate}" />
+        </Grid>
+    </DataTemplate>
+    
+    <!-- end CHANCE CASE template -->
+
+    <!-- start JAIL CASE template -->
+
+    <DataTemplate x:Key="JailEditCaseTemplate" DataType="{x:Type cases:JailCase}">
+        <Grid>
+            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageCaseTemplate}" />
+        </Grid>
+    </DataTemplate>
+    
+    <!-- end JAIL CASE template -->
+
+    <!-- start STATION CASE template -->
+
+    <DataTemplate x:Key="StationEditCaseTemplate" DataType="{x:Type cases:StationCase}">
+        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource PriceTextImageCaseTemplate}" />
+    </DataTemplate>
+
+    <!-- end STATION CASE template -->
+
+    <!-- start TAX CASE template -->
+
+    <DataTemplate x:Key="TaxEditCaseTemplate" DataType="{x:Type cases:TaxCase}">
+        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource PriceTextImageCaseTemplate}" />
+    </DataTemplate>
+
+    <!-- end TAX CASE template -->
+
+    <!-- start CHEST CASE template -->
+
+    <DataTemplate x:Key="ChestEditCaseTemplate" DataType="{x:Type cases:ChestCase}">
+        <Grid>
+            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageCaseTemplate}"></ContentPresenter>
+        </Grid>
+    </DataTemplate>
+
+    <!-- end CHEST CASE template -->
+
+    <!-- start PROPERTY CASE template -->
+
+    <DataTemplate x:Key="PropertyEditCaseTemplate" DataType="{x:Type cases:PropertyCase}">
+        <Grid Margin="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Text="Color : " VerticalAlignment="Center"/>
+            <xctk:ColorPicker Grid.Row="0" Grid.Column="1" SelectedColor="{Binding ColorString}" DisplayColorAndName="True" Height="25" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Property name : " VerticalAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding PropertyName}" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Price : " VerticalAlignment="Center"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Price}" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+        </Grid>
+    </DataTemplate>
+    
+    <!-- end PROPERTY CASE template -->
+
+    <!-- start START CASE template -->
+
+    <DataTemplate x:Key="StartEditCaseTemplate" DataType="{x:Type cases:StartCase}">
+        <Grid Margin="5">
+            <TextBlock Text="START" HorizontalAlignment="Center" />
+        </Grid>
+    </DataTemplate>
+
+    <!-- end START CASE template -->
+</ResourceDictionary>

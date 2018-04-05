@@ -1,37 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Platter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Cases>
+    <Case xsi:type="StartCase" text="START" gain="0" />
+    <Case xsi:type="StartCase" text="START" gain="0" />
+    <Case xsi:type="ChestCase" text="COMMUNITY CHEST" image_path="../../Images/chest.png" />
     <Case xsi:type="StartCase" text="START" gain="200" />
     <Case xsi:type="StartCase" text="START" gain="200" />
-    <Case xsi:type="ChanceCase" text="CHANCE" image_path="../Images/clover.png" />
-    <Case xsi:type="PropertyCase" color="#FF0000FF" property_name="Super" price="100" />
-    <Case xsi:type="StartCase" text="START" gain="200" />
-    <Case xsi:type="PropertyCase" color="#FF0000FF" property_name="Super" price="100" />
-    <Case xsi:type="JailCase" text="GO TO JAIL" image_path="../Images/handcuffs.png" />
-    <Case xsi:type="StartCase" text="START" gain="200" />
-    <Case xsi:type="StartCase" text="START" gain="200" />
-    <Case xsi:type="StartCase" text="START" gain="200" />
-    <Case xsi:type="StartCase" text="START" gain="200" />
-    <Case xsi:type="TaxCase" text="TAXE" image_path="../Images/tax.png" price="150" />
-    <Case xsi:type="StartCase" text="START" gain="200" />
-    <Case xsi:type="PropertyCase" color="#FF0000FF" property_name="Super" price="100" />
+    <Case xsi:type="ChanceCase" text="CHANCE" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\clover.png" />
+    <Case xsi:type="PropertyCase" color="#FFFF0000" property_name="Super" price="100" />
+    <Case xsi:type="PropertyCase" color="#FF00FFFF" property_name="Super" price="100" />
+    <Case xsi:type="JailCase" text="GO TO JAIL" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\handcuffs.png" />
     <Case xsi:type="StartCase" text="START" gain="200" />
     <Case xsi:type="StartCase" text="START" gain="200" />
     <Case xsi:type="StartCase" text="START" gain="200" />
     <Case xsi:type="StartCase" text="START" gain="200" />
-    <Case xsi:type="TaxCase" text="TAXE" image_path="../Images/tax.png" price="120" />
-    <Case xsi:type="StartCase" text="START" gain="200" />
-    <Case xsi:type="StartCase" text="START" gain="200" />
-    <Case xsi:type="ChestCase" text="COMMUNITY CHEST" image_path="../Images/chest.png" />
+    <Case xsi:type="TaxCase" text="TAXE" image_path="../../Images/tax.png" price="150" />
     <Case xsi:type="StartCase" text="START" gain="200" />
     <Case xsi:type="PropertyCase" color="#FF0000FF" property_name="Super" price="100" />
     <Case xsi:type="StartCase" text="START" gain="200" />
     <Case xsi:type="StartCase" text="START" gain="200" />
     <Case xsi:type="StartCase" text="START" gain="200" />
-    <Case xsi:type="StationCase" text="KING CROSS STATION" image_path="../Images/train.png" price="200" />
+    <Case xsi:type="StartCase" text="START" gain="200" />
+    <Case xsi:type="TaxCase" text="TAXE" image_path="../../Images/tax.png" price="120" />
     <Case xsi:type="StartCase" text="START" gain="200" />
     <Case xsi:type="StartCase" text="START" gain="200" />
-    <Case xsi:type="ChestCase" text="COMMUNITY CHEST" image_path="../Images/chest.png" />
+    <Case xsi:type="ChestCase" text="COMMUNITY CHEST" image_path="../../Images/chest.png" />
+    <Case xsi:type="StartCase" text="START" gain="200" />
+    <Case xsi:type="PropertyCase" color="#FF0000FF" property_name="Super" price="100" />
+    <Case xsi:type="StartCase" text="START" gain="200" />
+    <Case xsi:type="StartCase" text="START" gain="200" />
+    <Case xsi:type="StartCase" text="START" gain="200" />
+    <Case xsi:type="StationCase" text="KING CROSS STATION" image_path="../../Images/train.png" price="200" />
+    <Case xsi:type="StartCase" text="START" gain="200" />
+    <Case xsi:type="StartCase" text="START" gain="200" />
+    <Case xsi:type="StartCase" text="START" gain="200" />
     <Case xsi:type="StartCase" text="START" gain="200" />
     <Case xsi:type="StartCase" text="START" gain="200" />
     <Case xsi:type="StartCase" text="START" gain="200" />
@@ -41,5 +43,6 @@
     <Case xsi:type="StartCase" text="START" gain="200" />
     <Case xsi:type="PropertyCase" color="#864C38" property_name="OLD KENT ROAD" price="60" />
     <Case xsi:type="StartCase" text="START" gain="200" />
+    <Case xsi:type="StartCase" text="START" gain="0" />
   </Cases>
 </Platter>
