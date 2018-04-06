@@ -8,8 +8,13 @@ namespace MonopolyCommon.Cases
         {
             //Default values
             Text = "COMMUNITY CHEST";
-            ImagePath = "../Images/chest.png";
+            ImagePath = "";
             Type = "Chest";
+        }
+
+        public override void RandomFill()
+        {
+
         }
 
         public override void Action()

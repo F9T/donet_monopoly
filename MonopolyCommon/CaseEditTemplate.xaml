@@ -4,9 +4,16 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:cases="clr-namespace:MonopolyCommon.Cases"
     xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit">
+
+    <!-- start EMPTY template -->
+    <DataTemplate x:Key="EmptyEditCaseTemplate">
+        <Grid IsEnabled="False" />
+    </DataTemplate>
+
+    <!-- end EMPTY template -->
     
     <!-- start TEXT_IMAGE template -->
-    <DataTemplate x:Key="TextImageCaseTemplate">
+    <DataTemplate x:Key="TextImageEditCaseTemplate">
         <Grid Margin="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"/>
@@ -18,10 +25,10 @@
                 <ColumnDefinition Width="80"/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Text : " VerticalAlignment="Center"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Text}" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Text}" CharacterCasing="Upper" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
 
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Image path : " VerticalAlignment="Center"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ImagePath}" IsEnabled="False" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ImagePath}" ToolTip="{Binding ImagePath}" TextTrimming="CharacterEllipsis" VerticalAlignment="Bottom" Height="25"/>
             <!--<Image Source="{Binding ImagePath}" VerticalAlignment="Center" HorizontalAlignment="Center" />-->
             <Button Grid.Row="1" Grid.Column="2" Content="Browse" Height="25" Width="70" Tag="{Binding .}" Click="BrowseImage_OnClick" VerticalAlignment="Center"/>
         </Grid>
@@ -31,7 +38,7 @@
 
     <!-- start PRICE_TEXT_IMAGE template -->
 
-    <DataTemplate x:Key="PriceTextImageCaseTemplate">
+    <DataTemplate x:Key="PriceTextImageEditCaseTemplate">
         <Grid Margin="5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="35"/>
@@ -44,15 +51,15 @@
                 <ColumnDefinition Width="80"/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Row="0" Grid.Column="0" Text="Text : " VerticalAlignment="Center"/>
-            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Text}" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+            <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Text}" CharacterCasing="Upper" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
 
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Image path : " VerticalAlignment="Center"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding ImagePath}" IsEnabled="False" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding ImagePath}" ToolTip="{Binding ImagePath}" VerticalAlignment="Bottom" Height="25"/>
             <!--<Image Source="{Binding ImagePath}" VerticalAlignment="Center" HorizontalAlignment="Center" />-->
-            <Button Grid.Row="1" Grid.Column="2" Content="Browse" Height="25" Width="70" VerticalAlignment="Center"/>
+            <Button Grid.Row="1" Grid.Column="2" Content="Browse" Height="25" Width="70" Tag="{Binding .}" Click="BrowseImage_OnClick" VerticalAlignment="Center"/>
 
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Price : " VerticalAlignment="Center"/>
-            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Price}" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Price}" HorizontalContentAlignment="Right" VerticalAlignment="Center" VerticalContentAlignment="Center" Height="25"/>
         </Grid>
     </DataTemplate>
     
@@ -62,7 +69,7 @@
 
     <DataTemplate x:Key="ChanceEditCaseTemplate" DataType="{x:Type cases:ChanceCase}">
         <Grid>
-            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageCaseTemplate}" />
+            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageEditCaseTemplate}" />
         </Grid>
     </DataTemplate>
     
@@ -72,7 +79,7 @@
 
     <DataTemplate x:Key="JailEditCaseTemplate" DataType="{x:Type cases:JailCase}">
         <Grid>
-            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageCaseTemplate}" />
+            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageEditCaseTemplate}" />
         </Grid>
     </DataTemplate>
     
@@ -81,28 +88,28 @@
     <!-- start STATION CASE template -->
 
     <DataTemplate x:Key="StationEditCaseTemplate" DataType="{x:Type cases:StationCase}">
-        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource PriceTextImageCaseTemplate}" />
+        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource PriceTextImageEditCaseTemplate}" />
     </DataTemplate>
 
     <!-- end STATION CASE template -->
-
-    <!-- start TAX CASE template -->
-
-    <DataTemplate x:Key="TaxEditCaseTemplate" DataType="{x:Type cases:TaxCase}">
-        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource PriceTextImageCaseTemplate}" />
-    </DataTemplate>
-
-    <!-- end TAX CASE template -->
 
     <!-- start CHEST CASE template -->
 
     <DataTemplate x:Key="ChestEditCaseTemplate" DataType="{x:Type cases:ChestCase}">
         <Grid>
-            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageCaseTemplate}"></ContentPresenter>
+            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageEditCaseTemplate}"></ContentPresenter>
         </Grid>
     </DataTemplate>
 
     <!-- end CHEST CASE template -->
+
+    <!-- start TAX CASE template -->
+
+    <DataTemplate x:Key="TaxEditCaseTemplate" DataType="{x:Type cases:TaxCase}">
+        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource PriceTextImageEditCaseTemplate}" />
+    </DataTemplate>
+
+    <!-- end TAX CASE template -->
 
     <!-- start PROPERTY CASE template -->
 
@@ -121,7 +128,7 @@
             <xctk:ColorPicker Grid.Row="0" Grid.Column="1" SelectedColor="{Binding ColorString}" DisplayColorAndName="True" Height="25" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
 
             <TextBlock Grid.Row="1" Grid.Column="0" Text="Property name : " VerticalAlignment="Center"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding PropertyName}" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding PropertyName}" CharacterCasing="Upper" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
 
             <TextBlock Grid.Row="2" Grid.Column="0" Text="Price : " VerticalAlignment="Center"/>
             <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Price}" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
@@ -134,7 +141,22 @@
 
     <DataTemplate x:Key="StartEditCaseTemplate" DataType="{x:Type cases:StartCase}">
         <Grid Margin="5">
-            <TextBlock Text="START" HorizontalAlignment="Center" />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+                <RowDefinition Height="35"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Grid.Row="1" Grid.Column="0" Text="Text : " VerticalAlignment="Center"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Text}" CharacterCasing="Upper" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+
+            <TextBlock Grid.Row="2" Grid.Column="0" Text="Gain : " VerticalAlignment="Center"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding Gain}" Height="25" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
+
         </Grid>
     </DataTemplate>
 

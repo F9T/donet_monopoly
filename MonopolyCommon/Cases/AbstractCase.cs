@@ -7,12 +7,14 @@ using MonopolyCommon.Cases.Categories;
 namespace MonopolyCommon.Cases
 {
     [Serializable]
+    [XmlInclude(typeof(EmptyCase))]
     [XmlInclude(typeof(PropertyCase))]
     [XmlInclude(typeof(StartCase))]
     [XmlInclude(typeof(TextImageCase))]
     public abstract class AbstractCase : IModel, INotifyPropertyChanged
     {
         private bool selected;
+        protected Random random;
 
         protected AbstractCase()
         {
@@ -22,6 +24,7 @@ namespace MonopolyCommon.Cases
 
         public void Initialize()
         {
+            random = new Random(DateTime.Now.Millisecond);
             IsEditable = true;
             Selected = false;
         }
@@ -48,6 +51,8 @@ namespace MonopolyCommon.Cases
 
         [XmlIgnore]
         public int Height { get; set; }
+
+        public abstract void RandomFill();
 
         public abstract void Action();
 

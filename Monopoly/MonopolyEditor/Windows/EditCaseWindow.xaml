@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MonopolyEditor.Windows"
         xmlns:monopolyCommon="clr-namespace:MonopolyCommon;assembly=MonopolyCommon"
-        mc:Ignorable="d" Height="300" Width="450" WindowStartupLocation="CenterOwner"
+        mc:Ignorable="d" Height="350" Width="500" WindowStartupLocation="CenterOwner"
         Title="Edit case" WindowStyle="None">
     <Window.Resources>
         <monopolyCommon:DataTemplateCaseSelector x:Key="DataTemplateCaseSelector" 
@@ -16,6 +16,7 @@
                                                  StartCaseTemplate="{StaticResource StartCaseTemplate}"
                                                  StationCaseTemplate="{StaticResource StationCaseTemplate}"
                                                  TaxCaseTemplate="{StaticResource TaxCaseTemplate}"
+                                                 EmptyCaseTemplate="{StaticResource EmptyCaseTemplate}"
         />
         <monopolyCommon:DataTemplateCaseSelector x:Key="DataTemplateEditCaseSelector" 
                                                  ChanceCaseTemplate="{StaticResource ChanceEditCaseTemplate}"
@@ -25,13 +26,14 @@
                                                  StartCaseTemplate="{StaticResource StartEditCaseTemplate}"
                                                  StationCaseTemplate="{StaticResource StationEditCaseTemplate}"
                                                  TaxCaseTemplate="{StaticResource TaxEditCaseTemplate}"
+                                                 EmptyCaseTemplate="{StaticResource EmptyEditCaseTemplate}"
         />
     </Window.Resources>
     <Grid Margin="5">
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
             <RowDefinition />
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="40"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -46,5 +48,12 @@
             <ContentControl Content="{Binding Case}" ContentTemplateSelector="{StaticResource DataTemplateCaseSelector}"/>
         </Border>
         <Button Grid.Row="2" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center" Content="Ok" Click="Ok_OnClick" Height="25" Width="70"/>
+
+        <StackPanel Margin="5"  Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Center" Orientation="Horizontal">
+            <TextBlock Text="Types cases : " Height="25" VerticalAlignment="Bottom" />
+            <ComboBox Margin="5,0,0,0" ItemsSource="{Binding TypeCases}" SelectedItem="{Binding SelectedCaseType}" Width="110" Height="25" VerticalAlignment="Center">
+            </ComboBox>
+            <Button Margin="5,0,0,0" Command="{Binding ChangeCaseCommand}" Content="Change type" Height="25" VerticalAlignment="Top" Width="70" />
+        </StackPanel>
     </Grid>
 </Window>

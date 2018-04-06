@@ -21,6 +21,7 @@ namespace MonopolyCommon
                     }
                     catch (InvalidOperationException e)
                     {
+                        MessageBox.Show(e.Message);
                         return false;
                     }
                 }

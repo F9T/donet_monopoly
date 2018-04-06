@@ -11,6 +11,11 @@ namespace MonopolyCommon.Cases
             Type = "Station";
         }
 
+        public override void RandomFill()
+        {
+
+        }
+
         public override void Action()
         {
             throw new NotImplementedException();

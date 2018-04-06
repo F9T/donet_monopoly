@@ -7,7 +7,7 @@
         xmlns:cases="clr-namespace:MonopolyCommon.Cases;assembly=MonopolyCommon"
         xmlns:monopolyCommon="clr-namespace:MonopolyCommon;assembly=MonopolyCommon"
         xmlns:views="clr-namespace:MonopolyEditor.Views"
-        mc:Ignorable="d" Height="710" Width="800"
+        mc:Ignorable="d" Height="710" Width="800" MinHeight="700" MinWidth="750"
         Title="Monopoly Editor" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
@@ -23,25 +23,22 @@
                 <MenuItem Header="Close" Command="{Binding CloseCommand}"/>
                 <MenuItem Header="Exit" Command="{Binding ExitCommand}"/>
             </MenuItem>
+            <MenuItem Header="Generate">
+                <MenuItem Header="Classic" Command="{Binding GenerateClassicGameCommand}"/>
+                <MenuItem Header="Random" Command="{Binding GenerateRandomGameCommand}"/>
+            </MenuItem>
         </Menu>
-        <Grid Grid.Row="1" IsEnabled="{Binding IsCreated}" Margin="5">
+        <Grid Grid.Row="1" IsEnabled="{Binding IsCreated}" Margin="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="35"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="160"/>
+                <ColumnDefinition Width="130"/>
                 <ColumnDefinition Width="90"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Height="25" Margin="5"  Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
-                <TextBlock Text="Cases : " VerticalAlignment="Center" />
-                <ComboBox ItemsSource="{Binding TypeCases}" SelectedItem="{Binding SelectedCaseType}" VerticalAlignment="Center" Width="110">
-                </ComboBox>
-            </StackPanel>
-            <Button Margin="5" Grid.Row="0" Grid.Column="1" Command="{Binding NewCaseCommand}" Content="New case" Height="25" Width="70" HorizontalAlignment="Right" />
-            <ListView Margin="5" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" SelectionChanged="ListView_OnSelectionChanged" SelectionMode="Single" ItemsSource="{Binding Platter.Cases}" SelectedItem="{Binding SelectedCase}">
+            <ListView Margin="5" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" SelectionChanged="ListView_OnSelectionChanged" SelectionMode="Single" ItemsSource="{Binding Platter.Cases}" SelectedItem="{Binding SelectedCase}">
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Style.Triggers>
@@ -64,7 +61,7 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <StackPanel Margin="5" Orientation="Horizontal" Grid.Row="2" Grid.Column="0">
+            <StackPanel Margin="5" Orientation="Horizontal" Grid.Row="1" Grid.Column="0">
                 <Button Command="{Binding DownCaseCommand}" Height="24" Width="24">
                     <Image Width="16" Height="16" Source="../Images/down.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Button>
@@ -73,7 +70,7 @@
                 </Button>
             </StackPanel>
 
-            <StackPanel Margin="5" Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+            <StackPanel Margin="5" Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
                 <Button Command="{Binding RemoveCaseCommand}" Height="24" Width="24">
                     <Image Width="16" Height="16" Source="../Images/delete.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Button>
@@ -81,7 +78,7 @@
                     <Image Width="16" Height="16" Source="../Images/edit.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Button>
             </StackPanel>
-            <views:PlatterControlView Grid.Row="1" Grid.Column="2"  CaseMinHeight="70" CaseMinWidth="70"/>
+            <views:PlatterControlView Grid.Row="0" Grid.Column="2"  CaseMinHeight="65" CaseMinWidth="65"/>
         </Grid>
     </Grid>
 </Window>

@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
@@ -16,7 +14,6 @@ namespace MonopolyEditor.ViewModels
     public class MainViewModel : INotifyPropertyChanged, IDisposable
     {
         private AbstractCase selectedCase;
-        private string selectedCaseType;
         private bool isCreated, isSaved;
         private Platter platter;
 
@@ -37,15 +34,29 @@ namespace MonopolyEditor.ViewModels
             LoadCommand = new RelayCommand(_param => Load(), _param => true);
             ExitCommand = new RelayCommand(_param => Exit(), _param => true);
 
-            NewCaseCommand = new RelayCommand(_param => NewCase(), _param => !SelectedCaseType.Equals("") && Platter != null && Platter.Cases.Count < 40);
             RemoveCaseCommand = new RelayCommand(_param => RemoveCase(), _param => IsCreated && SelectedCase != null);
             EditCaseCommand = new RelayCommand(_param => EditCase(), _param => IsCreated && SelectedCase != null);
 
             UpCaseCommand = new RelayCommand(_param => UpCase(), _param => IsCreated && SelectedCase != null);
             DownCaseCommand = new RelayCommand(_param => DownCase(), _param => IsCreated && SelectedCase != null);
 
-            TypeCases = new ObservableCollection<string> {"", "Chance", "Chest", "Jail", "Property", "Station", "Tax"};
-            SelectedCaseType = TypeCases.First();
+            GenerateClassicGameCommand = new RelayCommand(_param => Generate(EnumGenerateGameType.Classic), _param => true);
+            GenerateRandomGameCommand = new RelayCommand(_param => Generate(EnumGenerateGameType.Random), _param => true);
+        }
+
+        private void Generate(EnumGenerateGameType _gameType)
+        {
+            Close();
+            switch (_gameType)
+            {
+                case EnumGenerateGameType.Classic:
+                    break;
+                case EnumGenerateGameType.Random:
+                    IsCreated = true;
+                    Platter = new Platter();
+                    Platter.FillRandomCase();
+                    break;
+            }
         }
 
         private void New()
@@ -53,7 +64,7 @@ namespace MonopolyEditor.ViewModels
             Close();
             IsCreated = true;
             Platter = new Platter();
-            SelectedCaseType = TypeCases.First();
+            Platter.FillDefaultCase();
         }
 
         private void Close()
@@ -91,7 +102,6 @@ namespace MonopolyEditor.ViewModels
             IsSaved = false;
             Platter = null;
             SelectedCase = null;
-            SelectedCaseType = TypeCases.First();
         }
 
         private void Save()
@@ -100,7 +110,8 @@ namespace MonopolyEditor.ViewModels
             {
                 SaveAs();
             }
-            if (new FileInfo(Platter.PathFile).Exists)
+            var directoryInfo = new FileInfo(Platter.PathFile).Directory;
+            if (directoryInfo != null && directoryInfo.Exists)
             {
                 PlatterSerializer.Serialize(Platter);
             }
@@ -143,42 +154,20 @@ namespace MonopolyEditor.ViewModels
             Application.Current.Shutdown(0);
         }
 
-        private void NewCase()
-        {
-            switch (SelectedCaseType.ToLower())
-            {
-                case "property":
-                    Platter.Cases.Add(new PropertyCase());
-                    break;
-                case "chance":
-                    Platter.Cases.Add(new ChanceCase());
-                    break;
-                case "chest":
-                    Platter.Cases.Add(new ChestCase());
-                    break;
-                case "jail":
-                    Platter.Cases.Add(new JailCase());
-                    break;
-                case "station":
-                    Platter.Cases.Add(new StationCase());
-                    break;
-                case "tax":
-                    Platter.Cases.Add(new TaxCase());
-                    break;
-            }
-            SelectedCase = Platter.Cases.Last();
-            IsSaved = false;
-        }
-
         private void EditCase()
         {
             var editWindow = new EditCaseWindow {Owner = Application.Current.MainWindow, Case = SelectedCase};
             editWindow.ShowDialog();
+            int index = Platter.Cases.IndexOf(SelectedCase);
+            Platter.Cases.RemoveAt(index);
+            Platter.Cases.Insert(index, editWindow.Case);
         }
 
         private void RemoveCase()
         {
+            int index = Platter.Cases.IndexOf(SelectedCase);
             Platter.Cases.Remove(SelectedCase);
+            Platter.Cases.Insert(index, new EmptyCase());
             SelectedCase = null;
             IsSaved = false;
         }
@@ -218,8 +207,8 @@ namespace MonopolyEditor.ViewModels
         public ICommand EditCaseCommand { get; set; }
         public ICommand UpCaseCommand { get; set; }
         public ICommand DownCaseCommand { get; set; }
-
-        public ObservableCollection<string> TypeCases { get; set; }
+        public ICommand GenerateClassicGameCommand { get; set; }
+        public ICommand GenerateRandomGameCommand { get; set; }
 
         public Platter Platter
         {
@@ -228,16 +217,6 @@ namespace MonopolyEditor.ViewModels
             {
                 platter = value;
                 OnPropertyChanged(nameof(Platter));
-            }
-        }
-
-        public string SelectedCaseType
-        {
-            get => selectedCaseType;
-            set
-            {
-                selectedCaseType = value;
-                OnPropertyChanged(nameof(SelectedCaseType));
             }
         }
 

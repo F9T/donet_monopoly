@@ -1,18 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+using MonopolyCommon;
 using MonopolyCommon.Cases;
 
 namespace MonopolyEditor.Windows
@@ -23,11 +15,45 @@ namespace MonopolyEditor.Windows
     public partial class EditCaseWindow : INotifyPropertyChanged
     {
         private AbstractCase mcase;
+        private string selectedCaseType;
 
         public EditCaseWindow()
         {
             InitializeComponent();
             DataContext = this;
+
+            ChangeCaseCommand = new RelayCommand(_param => ChangeType(), _param => true);
+
+            TypeCases = new ObservableCollection<string> { "", "Empty", "Chance", "Chest", "Jail", "Property", "Station", "Tax" };
+            SelectedCaseType = TypeCases.First();
+        }
+
+        private void ChangeType()
+        {
+            switch (SelectedCaseType.ToLower())
+            {
+                case "empty":
+                    Case = new EmptyCase();
+                    break;
+                case "property":
+                    Case = new PropertyCase();
+                    break;
+                case "chance":
+                    Case = new ChanceCase();
+                    break;
+                case "chest":
+                    Case = new ChestCase();
+                    break;
+                case "jail":
+                    Case = new JailCase();
+                    break;
+                case "station":
+                    Case = new StationCase();
+                    break;
+                case "tax":
+                    Case = new TaxCase();
+                    break;
+            }
         }
 
         public AbstractCase Case
@@ -39,6 +65,19 @@ namespace MonopolyEditor.Windows
                 OnPropertyChanged(nameof(Case));
             }
         }
+
+        public string SelectedCaseType
+        {
+            get => selectedCaseType;
+            set
+            {
+                selectedCaseType = value;
+                OnPropertyChanged(nameof(SelectedCaseType));
+            }
+        }
+        
+        public ICommand ChangeCaseCommand { get; set; }
+        public ObservableCollection<string> TypeCases { get; set; }
 
         private void Ok_OnClick(object _sender, RoutedEventArgs _e)
         {

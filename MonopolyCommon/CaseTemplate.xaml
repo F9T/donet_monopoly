@@ -7,20 +7,31 @@
     <Style x:Key="StyleCase" TargetType="{x:Type Control}">
         <Setter Property="FontFamily" Value="Verdana"/>
         <Setter Property="FontStretch" Value="UltraCondensed"/>
-        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="FontWeight" Value="ExtraBlack"/>
     </Style>
-    <Style x:Key="StyleCaseLittle" TargetType="{x:Type Control}" BasedOn="{StaticResource StyleCase}">
+    <Style x:Key="StyleCaseUltraTiny" TargetType="{x:Type Control}" BasedOn="{StaticResource StyleCase}">
+        <Setter Property="FontSize" Value="5"/>
+    </Style>
+    <Style x:Key="StyleCaseTiny" TargetType="{x:Type Control}" BasedOn="{StaticResource StyleCase}">
         <Setter Property="FontSize" Value="7"/>
     </Style>
     <Style x:Key="StyleCaseBig" TargetType="{x:Type Control}" BasedOn="{StaticResource StyleCase}">
         <Setter Property="FontSize" Value="15"/>
     </Style>
+    
     <Style TargetType="{x:Type TextBlock}">
         <Setter Property="TextWrapping" Value="Wrap"/>
     </Style>
 
     <!-- END STYLE CASE -->
-    
+
+    <!-- start EMPTY template -->
+    <DataTemplate x:Key="EmptyCaseTemplate">
+        <Grid IsEnabled="False" />
+    </DataTemplate>
+
+    <!-- end EMPTY template -->
+
     <!-- start TEXT_IMAGE template -->
     <DataTemplate x:Key="TextImageCaseTemplate">
         <Grid Margin="5">
@@ -119,7 +130,13 @@
 
     <DataTemplate x:Key="StartCaseTemplate" DataType="{x:Type cases:StartCase}">
         <Grid Margin="5">
-            <TextBlock Text="START" HorizontalAlignment="Center" />
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="START" HorizontalAlignment="Center" />
+            <TextBlock Grid.Row="2" Text="{Binding Gain}" HorizontalAlignment="Center" />
         </Grid>
     </DataTemplate>
 

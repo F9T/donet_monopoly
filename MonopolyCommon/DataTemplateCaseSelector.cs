@@ -13,9 +13,14 @@ namespace MonopolyCommon
         public DataTemplate ChestCaseTemplate { get; set; }
         public DataTemplate StartCaseTemplate { get; set; }
         public DataTemplate ChanceCaseTemplate { get; set; }
+        public DataTemplate EmptyCaseTemplate { get; set; }
 
         public override DataTemplate SelectTemplate(object _item, DependencyObject _container)
         {
+            if (_item is EmptyCase)
+            {
+                return EmptyCaseTemplate;
+            }
             if (_item is PropertyCase)
             {
                 return PropertyCaseTemplate;

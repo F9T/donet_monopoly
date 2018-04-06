@@ -10,6 +10,12 @@ namespace MonopolyCommon.Cases
         {
             Type = "Tax";
         }
+
+        public override void RandomFill()
+        {
+
+        }
+
         public override void Action()
         {
             throw new NotImplementedException();

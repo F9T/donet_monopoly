@@ -1,32 +1,28 @@
 ﻿using System;
-using MonopolyCommon.Cases.Categories;
 
 namespace MonopolyCommon.Cases
 {
     [Serializable]
-    public class JailCase : TextImageCase
+    public class EmptyCase : AbstractCase
     {
-        public JailCase()
+        public EmptyCase()
         {
-            //Default values
-            Text = "GO TO JAIL";
-            ImagePath = "";
-            Type = "Jail";
+            Type = "Empty";
         }
 
         public override void RandomFill()
         {
-
+            return;
         }
 
         public override void Action()
         {
-            
+            return;
         }
 
         public override bool IsLegal()
         {
-            return true;
+            return false;
         }
     }
 }

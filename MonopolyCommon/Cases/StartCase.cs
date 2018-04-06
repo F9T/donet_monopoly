@@ -14,7 +14,14 @@ namespace MonopolyCommon.Cases
             //Default values
             Text = "START";
             Type = "Start";
+            Gain = 200;
             IsEditable = false;
+        }
+
+        public override void RandomFill()
+        {
+            var values = new[] {50, 100, 150, 200, 250, 350, 400};
+            Gain = values[random.Next(0, values.Length)];
         }
 
         [XmlAttribute("text")]

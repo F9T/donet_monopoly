@@ -10,15 +10,50 @@ namespace MonopolyCommon
     [Serializable]
     public class Platter : INotifyPropertyChanged
     {
+        private const int NumberCase = 40;
+
         private string pathFile;
+        private Random random;
 
         public Platter()
         {
-            Cases = new ObservableCollection<AbstractCase> {new StartCase()};
+            random = new Random(DateTime.Now.Millisecond);
+            Cases = new ObservableCollection<AbstractCase>();
             //Create start case
             //Default name
             PathFile = "platter.xml";
             AlreadySerialize = false;
+        }
+
+        public void FillDefaultCase()
+        {
+            Cases.Clear();
+            for (int i = 0; i < NumberCase - 1; i++)
+            {
+                Cases.Add(new EmptyCase());
+            }
+            Cases.Add(new StartCase());
+        }
+
+        public void FillRandomCase()
+        {
+            FillDefaultCase();
+         /*   Cases.Clear();
+            var casesType = new []
+            {
+                typeof(PropertyCase), typeof(ChanceCase), typeof(JailCase), typeof(PropertyCase),
+                typeof(ChestCase), typeof(PropertyCase), typeof(StationCase), typeof(TaxCase), typeof(PropertyCase),
+                typeof(PropertyCase), typeof(PropertyCase)
+            };
+            int min = 0, max = casesType.Length;
+            for (int i = 0; i < NumberCase - 1; i++)
+            {
+                var type = casesType[random.Next(min, max)];
+                var randomCase =(AbstractCase) Activator.CreateInstance(type);
+                randomCase.RandomFill();
+                Cases.Add(randomCase);
+            }
+            Cases.Add(new StartCase());*/
         }
 
         [XmlArray(ElementName = "Cases")]
