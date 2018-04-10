@@ -15,6 +15,7 @@
                                                  StartCaseTemplate="{StaticResource StartCaseTemplate}"
                                                  StationCaseTemplate="{StaticResource StationCaseTemplate}"
                                                  TaxCaseTemplate="{StaticResource TaxCaseTemplate}"
+                                                 EmptyCaseTemplate="{StaticResource EmptyCaseTemplate}"
         />
     </UserControl.Resources>
     <Border BorderBrush="Black" BorderThickness="1">

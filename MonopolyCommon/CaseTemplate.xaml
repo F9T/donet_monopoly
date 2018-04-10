@@ -36,7 +36,7 @@
     <DataTemplate x:Key="TextImageCaseTemplate">
         <Grid Margin="5">
             <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="25"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <TextBlock Text="{Binding Text}" HorizontalAlignment="Center" Grid.Row="0" />
@@ -51,7 +51,7 @@
     <DataTemplate x:Key="PriceTextImageCaseTemplate">
         <Grid Margin="5">
             <Grid.RowDefinitions>
-                <RowDefinition Height="20"/>
+                <RowDefinition Height="25"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
