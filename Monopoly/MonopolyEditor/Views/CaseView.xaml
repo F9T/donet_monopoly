@@ -5,7 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:MonopolyEditor.Views"
              xmlns:cases="clr-namespace:MonopolyCommon.Cases;assembly=MonopolyCommon"
-             xmlns:monopolyCommon="clr-namespace:MonopolyCommon;assembly=MonopolyCommon">
+             xmlns:monopolyCommon="clr-namespace:MonopolyCommon;assembly=MonopolyCommon"
+             MouseLeftButtonUp="Case_OnMouseLeftButtonUp">
     <UserControl.Resources>
         <monopolyCommon:DataTemplateCaseSelector x:Key="DataTemplateCaseSelector" 
                                                  PriceTextImageCaseTemplate="{StaticResource PriceTextImageCaseTemplate}"
@@ -14,12 +15,18 @@
                                                  EmptyCaseTemplate="{StaticResource EmptyCaseTemplate}"
         />
     </UserControl.Resources>
+    <UserControl.ContextMenu>
+        <ContextMenu Opened="ContextMenu_OnOpened">
+            <MenuItem Header="Edit" Command="{Binding EditCaseCommand}" />
+            <MenuItem Header="Delete" Command="{Binding RemoveCaseCommand}" />
+        </ContextMenu>
+    </UserControl.ContextMenu>
     <Border BorderBrush="Black" BorderThickness="1">
         <Border.Style>
             <Style TargetType="Border">
                 <Style.Triggers>
                     <DataTrigger Binding="{Binding Case.Selected, RelativeSource={RelativeSource AncestorType={x:Type views:CaseView}}}" Value="True">
-                        <Setter Property="Background" Value="DarkSlateGray"/>
+                        <Setter Property="Background" Value="White"/>
                     </DataTrigger>
                 </Style.Triggers>
             </Style>

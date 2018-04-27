@@ -42,8 +42,4 @@
     <Case xsi:type="PropertyCase" color="#FF8B4513" property_name="OLD KENT ROAD" price="60" />
     <Case xsi:type="StartCase" text="START" gain="200" />
   </Cases>
-  <Players>
-	<Player color="#FFADD8E6" init_balance="1500" name="player1"/>
-	<Player color="#FFADD8E6" init_balance="1500" name="player2"/>
-  </Players>
 </Platter>

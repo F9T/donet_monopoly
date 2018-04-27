@@ -14,7 +14,7 @@ namespace MonopolyCommon
         }
 
         protected abstract void New();
-        protected abstract void Close();
+        protected abstract bool Close();
         protected abstract void Load();
         protected abstract void Save();
         protected abstract void SaveAs();

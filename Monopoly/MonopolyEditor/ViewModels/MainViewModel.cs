@@ -40,7 +40,11 @@ namespace MonopolyEditor.ViewModels
 
         private void Generate(EnumGenerateGameType _gameType)
         {
-            Close();
+            var cancel = Close();
+            if (cancel)
+            {
+                return;
+            }
             switch (_gameType)
             {
                 case EnumGenerateGameType.Classic:
@@ -56,13 +60,17 @@ namespace MonopolyEditor.ViewModels
         
         protected override void New()
         {
-            Close();
+            var cancel = Close();
+            if (cancel)
+            {
+                return;
+            }
             IsCreated = true;
             Platter = new Platter();
             Platter.FillDefaultCase();
         }
 
-        protected override void Close()
+        protected override bool Close()
         {
             //If already create and not saved
             if (IsCreated && !IsSaved)
@@ -84,11 +92,16 @@ namespace MonopolyEditor.ViewModels
                 {
                     Reset();
                 }
+                else
+                {
+                    return true;
+                }
             }
             else if (IsCreated && IsSaved)
             {
                 Reset();
             }
+            return false;
         }
 
         private void Reset()
@@ -124,7 +137,11 @@ namespace MonopolyEditor.ViewModels
 
         protected override void Load()
         {
-            Close();
+            var cancel = Close();
+            if (cancel)
+            {
+                return;
+            }
             var fileDialog = new OpenFileDialog {Filter = "XML Files (*.xml)| *.xml", Multiselect = false};
             var dial = fileDialog.ShowDialog(Application.Current.MainWindow);
             if (dial == true)
@@ -142,11 +159,16 @@ namespace MonopolyEditor.ViewModels
             }
         }
 
-        private void Exit()
+        public bool Exit()
         {
-            Close();
+            var cancel = Close();
+            if (cancel)
+            {
+                return false;
+            }
             Dispose();
             Application.Current.Shutdown(0);
+            return true;
         }
 
         private void EditCase()

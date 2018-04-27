@@ -10,7 +10,7 @@
         xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:panAndZoom="clr-namespace:Avalonia.Controls.PanAndZoom;assembly=Avalonia.Controls.PanAndZoom"
         mc:Ignorable="d" Height="710" Width="800" MinHeight="700" MinWidth="750"
-        Title="Monopoly Editor" WindowStartupLocation="CenterScreen">
+        Title="Monopoly Editor" WindowStartupLocation="CenterScreen" Closing="MainWindow_OnClosing">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
@@ -18,12 +18,12 @@
         </Grid.RowDefinitions>
         <Menu IsMainMenu="True" Grid.Row="0">
             <MenuItem Header="File">
-                <MenuItem Header="New" Command="{Binding NewCommand}"/>
-                <MenuItem Header="Save" Command="{Binding SaveCommand}"/>
-                <MenuItem Header="Save as..." Command="{Binding SaveAsCommand}"/>
-                <MenuItem Header="Load" Command="{Binding LoadCommand}"/>
-                <MenuItem Header="Close" Command="{Binding CloseCommand}"/>
-                <MenuItem Header="Exit" Command="{Binding ExitCommand}"/>
+                <MenuItem Header="New" Command="{Binding NewCommand}" InputGestureText="Ctrl+N"/>
+                <MenuItem Header="Save" Command="{Binding SaveCommand}" InputGestureText="Ctrl+S"/>
+                <MenuItem Header="Save as..." Command="{Binding SaveAsCommand}" InputGestureText="Ctrl+Shift+S"/>
+                <MenuItem Header="Load" Command="{Binding LoadCommand}" />
+                <MenuItem Header="Close" Command="{Binding CloseCommand}" InputGestureText="Ctrl+W"/>
+                <MenuItem Header="Exit" Command="{Binding ExitCommand}" InputGestureText="Alt+F4"/>
             </MenuItem>
             <MenuItem Header="Generate">
                 <MenuItem Header="Classic" Command="{Binding GenerateClassicGameCommand}"/>

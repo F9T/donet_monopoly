@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.ComponentModel;
+using System.Windows.Controls;
 using MonopolyEditor.ViewModels;
 
 namespace MonopolyEditor.Windows
@@ -21,6 +22,15 @@ namespace MonopolyEditor.Windows
         {
             var listView = _sender as ListView;
             listView?.ScrollIntoView(MainViewModel.SelectedCase);
+        }
+
+        private void MainWindow_OnClosing(object _sender, CancelEventArgs _e)
+        {
+            var close = MainViewModel?.Exit();
+            if (close == false)
+            {
+                _e.Cancel = true;
+            }
         }
     }
 }

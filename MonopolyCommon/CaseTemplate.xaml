@@ -27,7 +27,8 @@
 
     <!-- start EMPTY template -->
     <DataTemplate x:Key="EmptyCaseTemplate">
-        <Grid IsEnabled="False" />
+        <!-- Textblock working with stretch alignement -->
+        <TextBlock IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </DataTemplate>
 
     <!-- end EMPTY template -->

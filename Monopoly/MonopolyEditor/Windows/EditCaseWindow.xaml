@@ -15,10 +15,10 @@
                                                  EmptyCaseTemplate="{StaticResource EmptyCaseTemplate}"
         />
         <monopolyCommon:DataTemplateCaseSelector x:Key="DataTemplateEditCaseSelector" 
-                                                 PriceTextImageCaseTemplate="{StaticResource PriceTextImageCaseTemplate}"
-                                                 TextImageCaseTemplate="{StaticResource TextImageCaseTemplate}"
-                                                 PropertyCaseTemplate="{StaticResource PropertyCaseTemplate}"
-                                                 EmptyCaseTemplate="{StaticResource EmptyCaseTemplate}"
+                                                 PriceTextImageCaseTemplate="{StaticResource PriceTextImageEditCaseTemplate}"
+                                                 TextImageCaseTemplate="{StaticResource TextImageEditCaseTemplate}"
+                                                 PropertyCaseTemplate="{StaticResource PropertyEditCaseTemplate}"
+                                                 EmptyCaseTemplate="{StaticResource EmptyEditCaseTemplate}"
         />
     </Window.Resources>
     <Grid Margin="5">
