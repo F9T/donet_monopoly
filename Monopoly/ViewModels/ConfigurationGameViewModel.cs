@@ -2,7 +2,9 @@
 using System.ComponentModel;
 using System.IO;
 using System.Runtime.CompilerServices;
+using System.Windows;
 using System.Windows.Input;
+using Microsoft.Win32;
 using Monopoly.Models;
 using MonopolyCommon;
 using MonopolyCommon.Interfaces;
@@ -18,6 +20,7 @@ namespace Monopoly.ViewModels
             Model = new ConfigurationGame();
             AvailableColors = ((ConfigurationGame) Model).AvailableColors;
             SelectedPlayer = null;
+            IsCancelled = false;
             Initialize();
         }
 
@@ -43,23 +46,44 @@ namespace Monopoly.ViewModels
 
         private bool CanPlayGame()
         {
-            var fileInfo = new FileInfo(PathGame);
+            if (PathGame.Equals(""))
+            {
+                return false;
+            }
+            var fileInfo  = new FileInfo(PathGame);
             return Players.Count >= 2 && fileInfo.Exists;
         }
 
+
         private void StartGame()
         {
-            
+            var window = Utilities.GetOwnedWindow();
+            // just for to be sure
+            IsCancelled = false;
+            window?.Close();
         }
 
         private void BrowseGme()
         {
-            
+            var fileDialog = new OpenFileDialog
+            {
+                Multiselect = false,
+                CheckFileExists = true,
+                CheckPathExists = true,
+                Filter = "XML Files (*.xml)| *.xml"
+            };
+            var result = fileDialog.ShowDialog();
+            if (result == true)
+            {
+                PathGame = fileDialog.FileName;
+            }
         }
 
         private void CancelGame()
         {
-            
+            var window = Utilities.GetOwnedWindow();
+            IsCancelled = true;
+            window?.Close();
         }
 
         private bool CanAddPlayer()
@@ -104,6 +128,8 @@ namespace Monopoly.ViewModels
                 OnPropertyChanged(nameof(PathGame));
             }
         }
+
+        public bool IsCancelled { get; set; }
 
         public ObservableCollection<ColorItem> AvailableColors { get; set; }
 

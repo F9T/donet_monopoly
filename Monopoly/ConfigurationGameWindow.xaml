@@ -21,9 +21,7 @@
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Top">
             <TextBlock Text="Path game (.xml) : " VerticalAlignment="Center"/>
-            <Border BorderThickness="1" BorderBrush="{StaticResource TextBoxBorderBrush}" Margin="10,0,0,0" MinWidth="200">
-                <TextBlock Text="{Binding PathGame, FallbackValue='&lt;none&gt;'}" IsEnabled="False" VerticalAlignment="Center"/>
-            </Border>
+            <TextBox Margin="10,0,0,0" Text="{Binding PathGame}" ToolTip="{Binding PathGame}" MinWidth="200" MaxWidth="200" IsEnabled="False" VerticalAlignment="Center" />
             <Button Margin="10,0,0,0" Content="Browse" Command="{Binding BrowseGameCommand}"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0" VerticalAlignment="Stretch">
@@ -44,7 +42,7 @@
             <Button Content="Cancel" Command="{Binding CancelCommand}" Width="70" Height="25"/>
             <Button Margin="5,0,0,0" Content="Play" Command="{Binding PlayCommand}" Width="70" Height="25"/>
         </StackPanel>
-        <views:PlayerEditView Grid.Row="1" Grid.Column="1" Margin="5" HorizontalContentAlignment="Stretch" />
+        <views:PlayerEditView Grid.Row="1" Grid.Column="1" Margin="10" HorizontalContentAlignment="Stretch" />
     </Grid>
 </mah:MetroWindow>
 

@@ -19,7 +19,7 @@ namespace Monopoly.Models
         public void Initialize()
         {
             Players = new ObservableCollection<Player>();
-            PathGame = "<none>";
+            PathGame = "";
 
             //Limit colors use for players
             AvailableColors = new ObservableCollection<ColorItem>

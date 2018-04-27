@@ -80,6 +80,7 @@
       <DependentUpon>ConfigurationGameWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\ConfigurationGame.cs" />
+    <Compile Include="Utilities.cs" />
     <Compile Include="ViewModels\ConfigurationGameViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PlatterViewModel.cs" />

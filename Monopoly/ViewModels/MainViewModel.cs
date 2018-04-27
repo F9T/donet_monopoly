@@ -21,7 +21,11 @@ namespace Monopoly.ViewModels
                 Owner = Application.Current.MainWindow
             };
             configPlayers.ShowDialog();
-            PlatterViewModel.Deserialize(@"D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\PlatterExample\example.xml");
+            if (!configPlayers.ConfigurationGameViewModel.IsCancelled)
+            {
+                var pathGame = configPlayers.ConfigurationGameViewModel.PathGame;
+                PlatterViewModel.Deserialize(pathGame);
+            }
         }
 
         protected override bool Close()
