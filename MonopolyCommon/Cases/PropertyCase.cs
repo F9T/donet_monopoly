@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Media;
 using System.Xml.Serialization;
+using MonopolyCommon.Players;
 
 namespace MonopolyCommon.Cases
 {
@@ -72,7 +73,7 @@ namespace MonopolyCommon.Cases
             }
         }
 
-        public override void Action()
+        public override void Action(Player _player, Platter _platter)
         {
             
         }

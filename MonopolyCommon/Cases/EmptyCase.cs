@@ -1,4 +1,5 @@
 ﻿using System;
+using MonopolyCommon.Players;
 
 namespace MonopolyCommon.Cases
 {
@@ -15,7 +16,7 @@ namespace MonopolyCommon.Cases
             return;
         }
 
-        public override void Action()
+        public override void Action(Player _player, Platter _platter)
         {
             return;
         }

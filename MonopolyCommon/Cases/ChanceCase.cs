@@ -1,5 +1,6 @@
 ﻿using System;
 using MonopolyCommon.Cases.Categories;
+using MonopolyCommon.Players;
 
 namespace MonopolyCommon.Cases
 {
@@ -19,9 +20,9 @@ namespace MonopolyCommon.Cases
 
         }
 
-        public override void Action()
+        public override void Action(Player _player, Platter _platter)
         {
-            throw new NotImplementedException();
+
         }
 
         public override bool IsLegal()

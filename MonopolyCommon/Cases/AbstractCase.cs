@@ -4,6 +4,7 @@ using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 using MonopolyCommon.Cases.Categories;
 using MonopolyCommon.Interfaces;
+using MonopolyCommon.Players;
 
 namespace MonopolyCommon.Cases
 {
@@ -55,7 +56,7 @@ namespace MonopolyCommon.Cases
 
         public abstract void RandomFill();
 
-        public abstract void Action();
+        public abstract void Action(Player _player, Platter _platter);
 
         public abstract bool IsLegal();
 
