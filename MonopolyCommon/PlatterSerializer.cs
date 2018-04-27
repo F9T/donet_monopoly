@@ -36,12 +36,15 @@ namespace MonopolyCommon
             if (fileInfo.Exists)
             {
                 Platter platter = null;
-                var serializer = new XmlSerializer(typeof(Platter));
                 using (var sr = new StreamReader(_path))
                 {
                     try
                     {
+                        var serializer = new XmlSerializer(typeof(Platter));
                         platter = (Platter) serializer.Deserialize(sr);
+
+                        //TODO : CHECK IF COIN CASE
+
                         platter.PathFile = fileInfo.FullName;
                         platter.AlreadySerialize = true;
                     }

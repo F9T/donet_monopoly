@@ -66,6 +66,7 @@
       <DependentUpon>CaseEditTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cases\AbstractCase.cs" />
+    <Compile Include="Cases\ParkingCase.cs" />
     <Compile Include="Cases\Categories\PriceTextImageCase.cs" />
     <Compile Include="Cases\Categories\TextImageCase.cs" />
     <Compile Include="Cases\ChanceCase.cs" />
@@ -78,9 +79,12 @@
     <Compile Include="Cases\StationCase.cs" />
     <Compile Include="Cases\TaxCase.cs" />
     <Compile Include="DataTemplateCaseSelector.cs" />
-    <Compile Include="IModel.cs" />
+    <Compile Include="AbstractFileManager.cs" />
+    <Compile Include="Interfaces\IModel.cs" />
+    <Compile Include="Interfaces\IViewModel.cs" />
     <Compile Include="Platter.cs" />
     <Compile Include="PlatterSerializer.cs" />
+    <Compile Include="Players\Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RelayCommand.cs" />
   </ItemGroup>

@@ -1,28 +1,48 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using Monopoly.Interfaces;
+﻿using System.Windows;
+using System.Windows.Input;
+using MonopolyCommon;
+using MonopolyCommon.Interfaces;
 
 namespace Monopoly.ViewModels
 {
-    public class MainViewModel : IViewModel
+    public class MainViewModel : AbstractFileManager, IViewModel
     {
         public MainViewModel()
         {
             PlatterViewModel = new PlatterViewModel();
+
+            NewGameCommand = new RelayCommand(_param => New(), _param => true);
+        }
+
+        protected override void New()
+        {
+            var configPlayers = new ConfigurationGameWindow
+            {
+                Owner = Application.Current.MainWindow
+            };
+            configPlayers.ShowDialog();
             PlatterViewModel.Deserialize(@"D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\PlatterExample\example.xml");
         }
 
+        protected override void Close()
+        {
+
+        }
+
+        protected override void Load() { }
+
+        protected override void Save() { }
+
+        protected override void SaveAs(){ }
+
+        public IModel Model { get; set; }
+
         public PlatterViewModel PlatterViewModel { get; set; }
+
+        public ICommand NewGameCommand { get; set; }
 
         public void Dispose()
         {
-        }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string _propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(_propertyName));
         }
     }
 }

@@ -9,24 +9,16 @@
         Title="Edit case" WindowStyle="None">
     <Window.Resources>
         <monopolyCommon:DataTemplateCaseSelector x:Key="DataTemplateCaseSelector" 
-                                                 ChanceCaseTemplate="{StaticResource ChanceCaseTemplate}"
-                                                 ChestCaseTemplate="{StaticResource ChestCaseTemplate}"
-                                                 JailCaseTemplate="{StaticResource JailCaseTemplate}"
+                                                 PriceTextImageCaseTemplate="{StaticResource PriceTextImageCaseTemplate}"
+                                                 TextImageCaseTemplate="{StaticResource TextImageCaseTemplate}"
                                                  PropertyCaseTemplate="{StaticResource PropertyCaseTemplate}"
-                                                 StartCaseTemplate="{StaticResource StartCaseTemplate}"
-                                                 StationCaseTemplate="{StaticResource StationCaseTemplate}"
-                                                 TaxCaseTemplate="{StaticResource TaxCaseTemplate}"
                                                  EmptyCaseTemplate="{StaticResource EmptyCaseTemplate}"
         />
         <monopolyCommon:DataTemplateCaseSelector x:Key="DataTemplateEditCaseSelector" 
-                                                 ChanceCaseTemplate="{StaticResource ChanceEditCaseTemplate}"
-                                                 ChestCaseTemplate="{StaticResource ChestEditCaseTemplate}"
-                                                 JailCaseTemplate="{StaticResource JailEditCaseTemplate}"
-                                                 PropertyCaseTemplate="{StaticResource PropertyEditCaseTemplate}"
-                                                 StartCaseTemplate="{StaticResource StartEditCaseTemplate}"
-                                                 StationCaseTemplate="{StaticResource StationEditCaseTemplate}"
-                                                 TaxCaseTemplate="{StaticResource TaxEditCaseTemplate}"
-                                                 EmptyCaseTemplate="{StaticResource EmptyEditCaseTemplate}"
+                                                 PriceTextImageCaseTemplate="{StaticResource PriceTextImageCaseTemplate}"
+                                                 TextImageCaseTemplate="{StaticResource TextImageCaseTemplate}"
+                                                 PropertyCaseTemplate="{StaticResource PropertyCaseTemplate}"
+                                                 EmptyCaseTemplate="{StaticResource EmptyCaseTemplate}"
         />
     </Window.Resources>
     <Grid Margin="5">

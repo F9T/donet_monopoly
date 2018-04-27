@@ -3,6 +3,7 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 using MonopolyCommon.Cases.Categories;
+using MonopolyCommon.Interfaces;
 
 namespace MonopolyCommon.Cases
 {

@@ -1,4 +1,4 @@
-﻿<Window x:Class="MonopolyEditor.Windows.MainWindow"
+﻿<mah:MetroWindow x:Class="MonopolyEditor.Windows.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,11 +7,13 @@
         xmlns:cases="clr-namespace:MonopolyCommon.Cases;assembly=MonopolyCommon"
         xmlns:monopolyCommon="clr-namespace:MonopolyCommon;assembly=MonopolyCommon"
         xmlns:views="clr-namespace:MonopolyEditor.Views"
+        xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+        xmlns:panAndZoom="clr-namespace:Avalonia.Controls.PanAndZoom;assembly=Avalonia.Controls.PanAndZoom"
         mc:Ignorable="d" Height="710" Width="800" MinHeight="700" MinWidth="750"
         Title="Monopoly Editor" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="20"/>
+            <RowDefinition Height="30"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Menu IsMainMenu="True" Grid.Row="0">
@@ -78,7 +80,21 @@
                     <Image Width="16" Height="16" Source="../Images/edit.png" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Button>
             </StackPanel>
-            <views:PlatterControlView Grid.Row="0" Grid.Column="2"  CaseMinHeight="65" CaseMinWidth="65"/>
+            
+            <views:PlatterControlView Grid.Row="0" Grid.Column="2"  CaseMinHeight="65" CaseMinWidth="65">
+                <views:PlatterControlView.LayoutTransform>
+                    <ScaleTransform ScaleX="{Binding Path=Value, ElementName=SliderZoom}" ScaleY="{Binding Path=Value, ElementName=SliderZoom}"/>
+                </views:PlatterControlView.LayoutTransform>
+            </views:PlatterControlView>
+            <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal" Margin="0,0,5,0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <TextBlock Text="-" />
+                <Slider Name="SliderZoom" Margin="5,0,0,0" Width="200" Style="{DynamicResource FlatSlider}" Minimum="0.25" Maximum="2.0" TickFrequency="0.25" IsSnapToTickEnabled="True" Value="1.0" />
+                <TextBlock Margin="5,0,0,0" Text="+" VerticalAlignment="Center"/>
+                <TextBlock Margin="5,0,0,0" Width="30" Text="{Binding Path=Value, ElementName=SliderZoom}" />
+            </StackPanel>
         </Grid>
     </Grid>
-</Window>
+</mah:MetroWindow>
+
+
+

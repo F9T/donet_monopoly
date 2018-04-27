@@ -57,7 +57,7 @@
             </Grid.RowDefinitions>
             <TextBlock Text="{Binding Text}" HorizontalAlignment="Center" Grid.Row="0" />
             <Image Source="{Binding ImagePath}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"/>
-            <TextBlock Text="{Binding Price}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" />
+            <TextBlock Text="{Binding Price, StringFormat='{}{0} $'}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" />
         </Grid>
     </DataTemplate>
     

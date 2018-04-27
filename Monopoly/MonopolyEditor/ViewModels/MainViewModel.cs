@@ -1,7 +1,5 @@
 ﻿using System;
-using System.ComponentModel;
 using System.IO;
-using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Input;
 using Microsoft.Win32;
@@ -11,10 +9,9 @@ using MonopolyEditor.Windows;
 
 namespace MonopolyEditor.ViewModels
 {
-    public class MainViewModel : INotifyPropertyChanged, IDisposable
+    public class MainViewModel : AbstractFileManager, IDisposable
     {
         private AbstractCase selectedCase;
-        private bool isCreated, isSaved;
         private Platter platter;
 
         public MainViewModel()
@@ -24,9 +21,6 @@ namespace MonopolyEditor.ViewModels
 
         private void Initialize()
         {
-            IsCreated = false;
-            IsSaved = false;
-
             NewCommand = new RelayCommand(_param => New(), _param => true);
             CloseCommand = new RelayCommand(_param => Close(), _param => IsCreated);
             SaveCommand = new RelayCommand(_param => Save(), _param => IsCreated);
@@ -59,7 +53,8 @@ namespace MonopolyEditor.ViewModels
             }
         }
 
-        private void New()
+        
+        protected override void New()
         {
             Close();
             IsCreated = true;
@@ -67,7 +62,7 @@ namespace MonopolyEditor.ViewModels
             Platter.FillDefaultCase();
         }
 
-        private void Close()
+        protected override void Close()
         {
             //If already create and not saved
             if (IsCreated && !IsSaved)
@@ -104,7 +99,7 @@ namespace MonopolyEditor.ViewModels
             SelectedCase = null;
         }
 
-        private void Save()
+        protected override void Save()
         {
             if (!Platter.AlreadySerialize)
             {
@@ -117,7 +112,7 @@ namespace MonopolyEditor.ViewModels
             }
         }
 
-        private void SaveAs()
+        protected override void SaveAs()
         {
             var saveDialog = new SaveFileDialog { Filter = "XML Files (*.xml)| *.xml" };
             var result2 = saveDialog.ShowDialog(Application.Current.MainWindow);
@@ -127,7 +122,7 @@ namespace MonopolyEditor.ViewModels
             }
         }
 
-        private void Load()
+        protected override void Load()
         {
             Close();
             var fileDialog = new OpenFileDialog {Filter = "XML Files (*.xml)| *.xml", Multiselect = false};
@@ -238,37 +233,9 @@ namespace MonopolyEditor.ViewModels
             }
         }
 
-        public bool IsCreated
-        {
-            get => isCreated;
-            set
-            {
-                isCreated = value;
-                OnPropertyChanged(nameof(IsCreated));
-            }
-        }
-
-        public bool IsSaved
-        {
-            get => isSaved;
-            set
-            {
-                isSaved = value;
-                OnPropertyChanged(nameof(IsSaved));
-            }
-        }
-
         public void Dispose()
         {
 
         }
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string _propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(_propertyName));
-        }
-
     }
 }

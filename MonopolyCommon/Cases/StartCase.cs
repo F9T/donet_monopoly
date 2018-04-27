@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Xml.Serialization;
+using MonopolyCommon.Cases.Categories;
 
 namespace MonopolyCommon.Cases
 {
     [Serializable]
-    public class StartCase : AbstractCase
+    public class StartCase : PriceTextImageCase
     {
         private int gain;
         private string text;

@@ -8,13 +8,9 @@
              xmlns:monopolyCommon="clr-namespace:MonopolyCommon;assembly=MonopolyCommon">
     <UserControl.Resources>
         <monopolyCommon:DataTemplateCaseSelector x:Key="DataTemplateCaseSelector" 
-                                                 ChanceCaseTemplate="{StaticResource ChanceCaseTemplate}"
-                                                 ChestCaseTemplate="{StaticResource ChestCaseTemplate}"
-                                                 JailCaseTemplate="{StaticResource JailCaseTemplate}"
+                                                 PriceTextImageCaseTemplate="{StaticResource PriceTextImageCaseTemplate}"
+                                                 TextImageCaseTemplate="{StaticResource TextImageCaseTemplate}"
                                                  PropertyCaseTemplate="{StaticResource PropertyCaseTemplate}"
-                                                 StartCaseTemplate="{StaticResource StartCaseTemplate}"
-                                                 StationCaseTemplate="{StaticResource StationCaseTemplate}"
-                                                 TaxCaseTemplate="{StaticResource TaxCaseTemplate}"
                                                  EmptyCaseTemplate="{StaticResource EmptyCaseTemplate}"
         />
     </UserControl.Resources>

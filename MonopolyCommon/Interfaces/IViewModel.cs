@@ -1,9 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
 
-namespace Monopoly.Interfaces
+namespace MonopolyCommon.Interfaces
 {
     public interface IViewModel : IDisposable, INotifyPropertyChanged
     {
+        IModel Model { get; set; }
     }
 }

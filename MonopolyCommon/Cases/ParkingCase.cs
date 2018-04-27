@@ -3,31 +3,30 @@ using MonopolyCommon.Cases.Categories;
 
 namespace MonopolyCommon.Cases
 {
-    [Serializable]
-    public class JailCase : TextImageCase
+    public class ParkingCase : TextImageCase
     {
-        public JailCase()
+        public ParkingCase()
         {
             //Default values
-            Text = "GO TO JAIL";
+            Text = "FREE PARKING";
             ImagePath = "";
-            Type = "Jail";
+            Type = "Parking";
             IsEditable = false;
         }
 
         public override void RandomFill()
         {
-
+            
         }
 
         public override void Action()
         {
-            
+            throw new NotImplementedException();
         }
 
         public override bool IsLegal()
         {
-            return true;
+            throw new NotImplementedException();
         }
     }
 }

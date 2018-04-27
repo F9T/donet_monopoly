@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MonopolyCommon
+namespace MonopolyCommon.Interfaces
 {
     public interface IModel : IDisposable
     {

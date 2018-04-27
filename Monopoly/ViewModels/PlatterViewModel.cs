@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using Monopoly.Interfaces;
 using MonopolyCommon;
+using MonopolyCommon.Interfaces;
 
 namespace Monopoly.ViewModels
 {
@@ -9,11 +9,12 @@ namespace Monopoly.ViewModels
     {
         public PlatterViewModel()
         {
-            Platter = new Platter();
+            Model = new Platter();
         }
 
         public Platter Platter { get; set; }
 
+        public IModel Model { get; set; }
 
         public void Serialize(string _path)
         {

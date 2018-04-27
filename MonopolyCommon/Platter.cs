@@ -4,11 +4,13 @@ using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Xml.Serialization;
 using MonopolyCommon.Cases;
+using MonopolyCommon.Interfaces;
+using MonopolyCommon.Players;
 
 namespace MonopolyCommon
 {
     [Serializable]
-    public class Platter : INotifyPropertyChanged
+    public class Platter : IModel, INotifyPropertyChanged
     {
         private const int NumberCase = 40;
 
@@ -17,8 +19,14 @@ namespace MonopolyCommon
 
         public Platter()
         {
+            Initialize();
+        }
+
+        public void Initialize()
+        {
             random = new Random(DateTime.Now.Millisecond);
             Cases = new ObservableCollection<AbstractCase>();
+            Players = new ObservableCollection<Player>();
             //Create start case
             //Default name
             PathFile = "platter.xml";
@@ -28,9 +36,22 @@ namespace MonopolyCommon
         public void FillDefaultCase()
         {
             Cases.Clear();
-            for (int i = 0; i < NumberCase - 1; i++)
+            for (var i = 0; i < NumberCase - 1; i++)
             {
-                Cases.Add(new EmptyCase());
+                AbstractCase createCase = new EmptyCase();
+                switch (i)
+                {
+                    case 0:
+                        createCase = new ParkingCase();
+                        break;
+                    case 10:
+                        createCase = new JailCase();
+                        break;
+                    case 29:
+                        createCase = new JailCase();
+                        break;
+                }
+                Cases.Add(createCase);
             }
             Cases.Add(new StartCase());
         }
@@ -60,6 +81,10 @@ namespace MonopolyCommon
         [XmlArrayItem("Case", Type = typeof(AbstractCase))]
         public ObservableCollection<AbstractCase> Cases { get; set; }
 
+        [XmlArray(ElementName = "Players")]
+        [XmlArrayItem("Player", Type = typeof(Player), IsNullable = true)]
+        public ObservableCollection<Player> Players { get; set; }
+
         [XmlIgnore]
         public string PathFile
         {
@@ -72,6 +97,11 @@ namespace MonopolyCommon
         }
         [XmlIgnore]
         public bool AlreadySerialize { get; set; }
+
+        public void Dispose()
+        {
+
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

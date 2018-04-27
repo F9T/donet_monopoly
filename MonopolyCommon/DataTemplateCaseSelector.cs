@@ -1,53 +1,29 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using MonopolyCommon.Cases;
+using MonopolyCommon.Cases.Categories;
 
 namespace MonopolyCommon
 {
     public class DataTemplateCaseSelector : DataTemplateSelector
     {
+        public DataTemplate TextImageCaseTemplate { get; set; }
+        public DataTemplate PriceTextImageCaseTemplate { get; set; }
         public DataTemplate PropertyCaseTemplate { get; set; }
-        public DataTemplate JailCaseTemplate { get; set; }
-        public DataTemplate StationCaseTemplate { get; set; }
-        public DataTemplate TaxCaseTemplate { get; set; }
-        public DataTemplate ChestCaseTemplate { get; set; }
-        public DataTemplate StartCaseTemplate { get; set; }
-        public DataTemplate ChanceCaseTemplate { get; set; }
         public DataTemplate EmptyCaseTemplate { get; set; }
 
         public override DataTemplate SelectTemplate(object _item, DependencyObject _container)
         {
-            if (_item is EmptyCase)
+            switch (_item)
             {
-                return EmptyCaseTemplate;
-            }
-            if (_item is PropertyCase)
-            {
-                return PropertyCaseTemplate;
-            }
-            if (_item is JailCase)
-            {
-                return JailCaseTemplate;
-            }
-            if (_item is StationCase)
-            {
-                return StationCaseTemplate;
-            }
-            if (_item is TaxCase)
-            {
-                return TaxCaseTemplate;
-            }
-            if (_item is ChestCase)
-            {
-                return ChestCaseTemplate;
-            }
-            if (_item is StartCase)
-            {
-                return StartCaseTemplate;
-            }
-            if (_item is ChanceCase)
-            {
-                return ChanceCaseTemplate;
+                case PriceTextImageCase _:
+                    return PriceTextImageCaseTemplate;
+                case TextImageCase _:
+                    return TextImageCaseTemplate;
+                case PropertyCase _:
+                    return PropertyCaseTemplate;
+                case EmptyCase _:
+                    return EmptyCaseTemplate;
             }
             return base.SelectTemplate(_item, _container);
         }
