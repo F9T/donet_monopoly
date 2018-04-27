@@ -1,20 +1,22 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using Monopoly.Models;
 using MonopolyCommon;
 using MonopolyCommon.Interfaces;
 using MonopolyCommon.Players;
+using Xceed.Wpf.Toolkit;
 
 namespace Monopoly.ViewModels
 {
     public class ConfigurationGameViewModel : IViewModel
     {
-
         public ConfigurationGameViewModel()
         {
             Model = new ConfigurationGame();
+            AvailableColors = ((ConfigurationGame) Model).AvailableColors;
             SelectedPlayer = null;
             Initialize();
         }
@@ -24,8 +26,8 @@ namespace Monopoly.ViewModels
             AddPlayerCommand = new RelayCommand(_param => AddPlayer(), _param => CanAddPlayer());
             DeletePlayerCommand = new RelayCommand(_param => DeletePlayer(), _param => SelectedPlayer != null);
             BrowseGameCommand = new RelayCommand(_param => BrowseGme(), _param => true);
-            CancelCommand = new RelayCommand(_param => DeletePlayer(), _param => true);
-            PlayCommand = new RelayCommand(_param => DeletePlayer(), _param => true);
+            CancelCommand = new RelayCommand(_param => CancelGame(), _param => true);
+            PlayCommand = new RelayCommand(_param => StartGame(), _param => CanPlayGame());
         }
 
         private void AddPlayer()
@@ -39,7 +41,23 @@ namespace Monopoly.ViewModels
             ((ConfigurationGame)Model).DeleteSelectedPlayer();
         }
 
+        private bool CanPlayGame()
+        {
+            var fileInfo = new FileInfo(PathGame);
+            return Players.Count >= 2 && fileInfo.Exists;
+        }
+
+        private void StartGame()
+        {
+            
+        }
+
         private void BrowseGme()
+        {
+            
+        }
+
+        private void CancelGame()
         {
             
         }
@@ -76,6 +94,18 @@ namespace Monopoly.ViewModels
                 OnPropertyChanged(nameof(Players));
             }
         }
+
+        public string PathGame
+        {
+            get => ((ConfigurationGame) Model).PathGame;
+            set
+            {
+                ((ConfigurationGame) Model).PathGame = value;
+                OnPropertyChanged(nameof(PathGame));
+            }
+        }
+
+        public ObservableCollection<ColorItem> AvailableColors { get; set; }
 
         public void Dispose()
         {

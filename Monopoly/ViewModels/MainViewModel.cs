@@ -24,9 +24,9 @@ namespace Monopoly.ViewModels
             PlatterViewModel.Deserialize(@"D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\PlatterExample\example.xml");
         }
 
-        protected override void Close()
+        protected override bool Close()
         {
-
+            return true;
         }
 
         protected override void Load() { }

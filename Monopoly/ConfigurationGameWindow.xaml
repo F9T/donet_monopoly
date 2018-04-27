@@ -22,7 +22,7 @@
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Top">
             <TextBlock Text="Path game (.xml) : " VerticalAlignment="Center"/>
             <Border BorderThickness="1" BorderBrush="{StaticResource TextBoxBorderBrush}" Margin="10,0,0,0" MinWidth="200">
-                <TextBlock Text="{Binding PathGame, FallbackValue='&lt;none&gt;'}" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding PathGame, FallbackValue='&lt;none&gt;'}" IsEnabled="False" VerticalAlignment="Center"/>
             </Border>
             <Button Margin="10,0,0,0" Content="Browse" Command="{Binding BrowseGameCommand}"/>
         </StackPanel>
