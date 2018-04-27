@@ -10,7 +10,7 @@ using MonopolyCommon.Players;
 namespace MonopolyCommon
 {
     [Serializable]
-    public class Platter : IModel, INotifyPropertyChanged
+    public class Platter : IModel
     {
         private const int NumberCase = 40;
 
@@ -86,15 +86,8 @@ namespace MonopolyCommon
         public ObservableCollection<Player> Players { get; set; }
 
         [XmlIgnore]
-        public string PathFile
-        {
-            get => pathFile;
-            set
-            {
-                pathFile = value;
-                OnPropertyChanged(nameof(PathFile));
-            }
-        }
+        public string PathFile { get; set; }
+
         [XmlIgnore]
         public bool AlreadySerialize { get; set; }
 

@@ -1,7 +1,10 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using MonopolyCommon;
+using MonopolyCommon.Cases;
 using MonopolyCommon.Interfaces;
+using MonopolyCommon.Players;
 
 namespace Monopoly.ViewModels
 {
@@ -12,18 +15,54 @@ namespace Monopoly.ViewModels
             Model = new Platter();
         }
 
-        public Platter Platter { get; set; }
-
         public IModel Model { get; set; }
+
+        public string PathFile
+        {
+            get => ((Platter)Model).PathFile;
+            set
+            {
+                ((Platter)Model).PathFile = value;
+                OnPropertyChanged(nameof(PathFile));
+            }
+        }
+
+        public ObservableCollection<Player> Players
+        {
+            get => ((Platter) Model).Players;
+            set
+            {
+                ((Platter) Model).Players = value;
+                OnPropertyChanged(nameof(Players));
+            }
+        }
+
+        public ObservableCollection<AbstractCase> Cases
+        {
+            get => ((Platter) Model).Cases;
+            set
+            {
+                ((Platter) Model).Cases = value;
+                OnPropertyChanged(nameof(Cases));
+            }
+        }
+
+        private void Update()
+        {
+            Cases = ((Platter)Model).Cases;
+            Players = ((Platter)Model).Players;
+            PathFile = ((Platter)Model).PathFile;
+        }
 
         public void Serialize(string _path)
         {
-            PlatterSerializer.Serialize(Platter);
+            PlatterSerializer.Serialize((Platter) Model);
         }
 
         public void Deserialize(string _path)
         {
-            Platter = PlatterSerializer.Deserialize(_path);
+            Model = PlatterSerializer.Deserialize(_path);
+            Update();
         }
 
         public void Dispose()
