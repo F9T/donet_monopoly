@@ -212,5 +212,8 @@
     <Resource Include="Images\dice5.png" />
     <Resource Include="Images\dice6.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\dice0.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

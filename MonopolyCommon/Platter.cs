@@ -27,8 +27,9 @@ namespace MonopolyCommon
             Players = new ObservableCollection<Player>();
             //Create start case
             //Default name
-            PathFile = "platter.xml";
+            PathFile = "";
             AlreadySerialize = false;
+            IsStarted = false;
         }
 
         public void FillDefaultCase()
@@ -74,6 +75,8 @@ namespace MonopolyCommon
             }
             Cases.Add(new StartCase());*/
         }
+
+        public bool IsStarted { get; set; }
 
         public Player CurrentPlayer { get; set; }
 

@@ -30,6 +30,16 @@ namespace Monopoly.ViewModels
 
         public IModel Model { get; set; }
 
+        public bool IsStarted
+        {
+            get => ((Platter)Model).IsStarted;
+            set
+            {
+                ((Platter)Model).IsStarted = value;
+                OnPropertyChanged(nameof(IsStarted));
+            }
+        }
+
         public string PathFile
         {
             get => ((Platter)Model).PathFile;
@@ -95,6 +105,7 @@ namespace Monopoly.ViewModels
             Cases = ((Platter)Model).Cases;
             Players = ((Platter)Model).Players;
             PathFile = ((Platter)Model).PathFile;
+            IsStarted = true;
         }
 
         public void Serialize(string _path)
