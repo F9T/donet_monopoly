@@ -33,7 +33,7 @@
             <RowDefinition />
             <RowDefinition MinHeight="{Binding CaseMinHeight, RelativeSource={RelativeSource AncestorType={x:Type views:PlatterControlView}}}"/>
         </Grid.RowDefinitions>
-        <views:MiddlePlatterView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="9" Grid.RowSpan="9" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        <views:MiddlePlatterView Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="9" Grid.RowSpan="9" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
         <views:CaseView Grid.Row="0" Grid.Column="0" Case="{Binding PlatterViewModel.Cases[0]}" Orientation="SouthEast"  />
         <views:CaseView Grid.Row="0" Grid.Column="1" Case="{Binding PlatterViewModel.Cases[1]}" Orientation="South"  />
         <views:CaseView Grid.Row="0" Grid.Column="2" Case="{Binding PlatterViewModel.Cases[2]}" Orientation="South"  />
