@@ -76,6 +76,14 @@ namespace MonopolyCommon
             Cases.Add(new StartCase());*/
         }
 
+        public void Serialize(string _path)
+        {
+            var platter = PlatterSerializer.Deserialize(_path);
+            Cases = new ObservableCollection<AbstractCase>(platter.Cases);
+            PathFile = platter.PathFile;
+            IsStarted = true;
+        }
+
         public bool IsStarted { get; set; }
 
         public Player CurrentPlayer { get; set; }

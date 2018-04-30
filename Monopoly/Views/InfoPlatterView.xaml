@@ -20,12 +20,12 @@
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="90"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Game" FontWeight="Bold" TextDecorations="Underline" FontSize="15"/>
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Player turn :" Style="{StaticResource TextStyle}"/>
-        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding PlatterViewModel.CurrentPlayer}" Style="{StaticResource TextStyle}"/>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding PlatterViewModel.CurrentPlayer.Name}" Foreground="{Binding PlatterViewModel.CurrentPlayer.Color}" Style="{StaticResource TextStyle}"/>
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Balance :" Style="{StaticResource TextStyle}"/>
         <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding PlatterViewModel.Balance}" Style="{StaticResource TextStyle}"/>
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">

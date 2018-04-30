@@ -29,8 +29,8 @@ namespace Monopoly.ViewModels
             if (!configPlayers.ConfigurationGameViewModel.IsCancelled)
             {
                 var pathGame = configPlayers.ConfigurationGameViewModel.PathGame;
+                PlatterViewModel.AddPlayers(new ObservableCollection<Player>(configPlayers.ConfigurationGameViewModel.Players));
                 PlatterViewModel.Deserialize(pathGame);
-                PlatterViewModel.Players = new ObservableCollection<Player>(configPlayers.ConfigurationGameViewModel.Players);
             }
         }
 

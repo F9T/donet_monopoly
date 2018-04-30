@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
@@ -106,6 +107,13 @@ namespace Monopoly.ViewModels
             Players = ((Platter)Model).Players;
             PathFile = ((Platter)Model).PathFile;
             IsStarted = true;
+            CurrentPlayer = Players[0];
+        }
+
+        public void AddPlayers(IEnumerable<Player> _playerList)
+        {
+            ((Platter) Model).Players = new ObservableCollection<Player>(_playerList);
+            Players = ((Platter) Model).Players;
         }
 
         public void Serialize(string _path)
@@ -115,7 +123,7 @@ namespace Monopoly.ViewModels
 
         public void Deserialize(string _path)
         {
-            Model = PlatterSerializer.Deserialize(_path);
+            ((Platter) Model).Serialize(_path);
             Update();
         }
 
