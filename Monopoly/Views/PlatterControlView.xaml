@@ -6,7 +6,7 @@
              xmlns:views="clr-namespace:Monopoly.Views"
              mc:Ignorable="d" Style="{StaticResource StyleCaseTiny}"
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Background="#D9E9CE">
+    <Grid Background="#D9E9CE" IsEnabled="{Binding PlatterViewModel.IsStarted}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition MinWidth="{Binding CaseMinWidth, RelativeSource={RelativeSource AncestorType={x:Type views:PlatterControlView}}}"/>
             <ColumnDefinition />
@@ -74,5 +74,21 @@
         <views:CaseView Grid.Row="10" Grid.Column="8" Case="{Binding PlatterViewModel.Cases[37]}" Orientation="North"  />
         <views:CaseView Grid.Row="10" Grid.Column="9" Case="{Binding PlatterViewModel.Cases[38]}" Orientation="North"  />
         <views:CaseView Grid.Row="10" Grid.Column="10" Case="{Binding PlatterViewModel.Cases[39]}" Orientation="NortWest"  />
+        
+        <!-- Disabled visibility -->
+        <StackPanel Grid.Row="0" Grid.RowSpan="11" Grid.Column="0" Grid.ColumnSpan="11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="GhostWhite" Opacity="0.6">
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding PlatterViewModel.IsStarted}" Value="False">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding PlatterViewModel.IsStarted}" Value="True">
+                            <Setter Property="Visibility" Value="Hidden"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+        </StackPanel>
     </Grid>
 </UserControl>
