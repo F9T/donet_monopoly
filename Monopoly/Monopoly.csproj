@@ -79,6 +79,7 @@
     <Compile Include="ConfigurationGameWindow.xaml.cs">
       <DependentUpon>ConfigurationGameWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Die.cs" />
     <Compile Include="Models\ConfigurationGame.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="ViewModels\ConfigurationGameViewModel.cs" />

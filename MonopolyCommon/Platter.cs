@@ -13,8 +13,6 @@ namespace MonopolyCommon
     public class Platter : IModel
     {
         private const int NumberCase = 40;
-
-        private string pathFile;
         private Random random;
 
         public Platter()
