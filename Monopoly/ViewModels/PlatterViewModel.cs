@@ -27,6 +27,16 @@ namespace Monopoly.ViewModels
             }
         }
 
+        public Player CurrentPlayer
+        {
+            get => ((Platter)Model).CurrentPlayer;
+            set
+            {
+                ((Platter)Model).CurrentPlayer = value;
+                OnPropertyChanged(nameof(CurrentPlayer));
+            }
+        }
+
         public ObservableCollection<Player> Players
         {
             get => ((Platter) Model).Players;

@@ -88,6 +88,9 @@
     <Compile Include="Views\CaseView.xaml.cs">
       <DependentUpon>CaseView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\InfoPlatterView.xaml.cs">
+      <DependentUpon>InfoPlatterView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MiddlePlatterView.xaml.cs">
       <DependentUpon>MiddlePlatterView.xaml</DependentUpon>
     </Compile>
@@ -96,6 +99,9 @@
     </Compile>
     <Compile Include="Views\PlayerEditView.xaml.cs">
       <DependentUpon>PlayerEditView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StatePlatterPlayerView.xaml.cs">
+      <DependentUpon>StatePlatterPlayerView.xaml</DependentUpon>
     </Compile>
     <Page Include="ConfigurationGameWindow.xaml">
       <SubType>Designer</SubType>
@@ -113,9 +119,17 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Styles\MainStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\CaseView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\InfoPlatterView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\MiddlePlatterView.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -126,6 +140,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\PlayerEditView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StatePlatterPlayerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,8 +196,6 @@
       <Name>MonopolyCommon</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Styles\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

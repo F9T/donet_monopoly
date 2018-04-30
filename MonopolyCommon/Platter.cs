@@ -75,6 +75,8 @@ namespace MonopolyCommon
             Cases.Add(new StartCase());*/
         }
 
+        public Player CurrentPlayer { get; set; }
+
         [XmlArray(ElementName = "Cases")]
         [XmlArrayItem("Case", Type = typeof(AbstractCase))]
         public ObservableCollection<AbstractCase> Cases { get; set; }
