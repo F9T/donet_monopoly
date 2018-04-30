@@ -79,6 +79,7 @@
     <Compile Include="ConfigurationGameWindow.xaml.cs">
       <DependentUpon>ConfigurationGameWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\DieNumberToSourceConverter.cs" />
     <Compile Include="Die.cs" />
     <Compile Include="Models\ConfigurationGame.cs" />
     <Compile Include="Utilities.cs" />
@@ -87,6 +88,9 @@
     <Compile Include="ViewModels\PlatterViewModel.cs" />
     <Compile Include="Views\CaseView.xaml.cs">
       <DependentUpon>CaseView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DieView.xaml.cs">
+      <DependentUpon>DieView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\InfoPlatterView.xaml.cs">
       <DependentUpon>InfoPlatterView.xaml</DependentUpon>
@@ -126,6 +130,10 @@
     <Page Include="Views\CaseView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\DieView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\InfoPlatterView.xaml">
       <SubType>Designer</SubType>
@@ -196,6 +204,13 @@
       <Name>MonopolyCommon</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\dice1.png" />
+    <Resource Include="Images\dice2.png" />
+    <Resource Include="Images\dice3.png" />
+    <Resource Include="Images\dice4.png" />
+    <Resource Include="Images\dice5.png" />
+    <Resource Include="Images\dice6.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

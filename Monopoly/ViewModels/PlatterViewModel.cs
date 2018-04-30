@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 using MonopolyCommon;
 using MonopolyCommon.Cases;
 using MonopolyCommon.Interfaces;
@@ -10,9 +11,21 @@ namespace Monopoly.ViewModels
 {
     public class PlatterViewModel : IViewModel
     {
+        private Die dieOne;
+        private Die dieSecond;
+
         public PlatterViewModel()
         {
             Model = new Platter();
+            DieOne = new Die(1, 6);
+            DieSecond = new Die(1, 6);
+            RollDiceCommand = new RelayCommand(_param => RollDice(), _param => true);
+        }
+
+        public void RollDice()
+        {
+            DieOne.Roll();
+            DieSecond.Roll();
         }
 
         public IModel Model { get; set; }
@@ -24,6 +37,26 @@ namespace Monopoly.ViewModels
             {
                 ((Platter)Model).PathFile = value;
                 OnPropertyChanged(nameof(PathFile));
+            }
+        }
+
+        public Die DieOne
+        {
+            get => dieOne;
+            set
+            {
+                dieOne = value;
+                OnPropertyChanged(nameof(DieOne));
+            }
+        }
+
+        public Die DieSecond
+        {
+            get => dieSecond;
+            set
+            {
+                dieSecond = value;
+                OnPropertyChanged(nameof(DieSecond));
             }
         }
 
@@ -74,6 +107,8 @@ namespace Monopoly.ViewModels
             Model = PlatterSerializer.Deserialize(_path);
             Update();
         }
+
+        public ICommand RollDiceCommand { get; set; }
 
         public void Dispose()
         {

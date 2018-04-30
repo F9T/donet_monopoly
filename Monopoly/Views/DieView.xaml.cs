@@ -1,28 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Monopoly.Views
 {
     /// <summary>
     /// Logique d'interaction pour DieView.xaml
     /// </summary>
-    public partial class DieView : UserControl
+    public partial class DieView
     {
         public DieView()
         {
             InitializeComponent();
+        }
+
+        public static readonly DependencyProperty DieProperty = DependencyProperty.Register("Die", typeof(Die), typeof(DieView), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+
+        public Die Die
+        {
+            get => (Die) GetValue(DieProperty);
+            set => SetValue(DieProperty, value);
         }
     }
 }

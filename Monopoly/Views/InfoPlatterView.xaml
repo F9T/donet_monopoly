@@ -28,6 +28,10 @@
         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding PlatterViewModel.CurrentPlayer}" Style="{StaticResource TextStyle}"/>
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Balance :" Style="{StaticResource TextStyle}"/>
         <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding PlatterViewModel.Balance}" Style="{StaticResource TextStyle}"/>
-        
+        <StackPanel Grid.Row="3" Grid.Column="0" Orientation="Horizontal">
+            <local:DieView Die="{Binding PlatterViewModel.DieOne}" />
+            <local:DieView Margin="5,0,0,0" Die="{Binding PlatterViewModel.DieSecond}" />
+            <Button Content="Roll" Command="{Binding PlatterViewModel.RollDiceCommand}"/>
+        </StackPanel>
     </Grid>
 </UserControl>
