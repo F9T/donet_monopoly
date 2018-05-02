@@ -82,6 +82,8 @@ namespace MonopolyCommon
             Cases = new ObservableCollection<AbstractCase>(platter.Cases);
             PathFile = platter.PathFile;
             IsStarted = true;
+            //All player in starting block
+            Cases[39].Players = new ObservableCollection<Player>(Players);
         }
 
         public bool IsStarted { get; set; }

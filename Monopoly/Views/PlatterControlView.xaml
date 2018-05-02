@@ -74,9 +74,12 @@
         <views:CaseView Grid.Row="10" Grid.Column="8" Case="{Binding PlatterViewModel.Cases[37]}" Orientation="North"  />
         <views:CaseView Grid.Row="10" Grid.Column="9" Case="{Binding PlatterViewModel.Cases[38]}" Orientation="North"  />
         <views:CaseView Grid.Row="10" Grid.Column="10" Case="{Binding PlatterViewModel.Cases[39]}" Orientation="NortWest"  />
-        
+
         <!-- Disabled effect if party not started -->
-        <StackPanel Grid.Row="0" Grid.RowSpan="11" Grid.Column="0" Grid.ColumnSpan="11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="GhostWhite" Opacity="0.6">
+        <StackPanel Grid.Row="0" Grid.RowSpan="11" Grid.Column="0" Grid.ColumnSpan="11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Opacity="0.6">
+            <StackPanel.Background>
+                <ImageBrush ImageSource="/Monopoly;component/Images/background2.jpg" Stretch="UniformToFill" TileMode="Tile"/>
+            </StackPanel.Background>
             <StackPanel.Style>
                 <Style TargetType="StackPanel">
                     <Style.Triggers>

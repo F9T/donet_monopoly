@@ -5,6 +5,7 @@ using System.Xml.Serialization;
 using MonopolyCommon.Cases.Categories;
 using MonopolyCommon.Interfaces;
 using MonopolyCommon.Players;
+using System.Collections.ObjectModel;
 
 namespace MonopolyCommon.Cases
 {
@@ -26,6 +27,7 @@ namespace MonopolyCommon.Cases
 
         public void Initialize()
         {
+            Players = new ObservableCollection<Player>();
             random = new Random(DateTime.Now.Millisecond);
             IsEditable = true;
             Selected = false;
@@ -54,10 +56,15 @@ namespace MonopolyCommon.Cases
         [XmlIgnore]
         public int Height { get; set; }
 
+        [XmlIgnore]
+        public ObservableCollection<Player> Players { get; set; }
+
         public abstract void RandomFill();
 
+        //Action de la case
         public abstract void Action(Player _player, Platter _platter);
 
+        //On peut y aller ou pas
         public abstract bool IsLegal();
 
         public void Dispose()

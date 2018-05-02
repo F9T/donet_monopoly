@@ -230,5 +230,26 @@
   <ItemGroup>
     <Resource Include="Images\electricity.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\button2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\button3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\button4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\background2.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

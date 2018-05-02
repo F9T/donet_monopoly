@@ -15,10 +15,22 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Nom :"/>
-        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedPlayer.Name}" Height="22" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedPlayer.Name}" Height="40" VerticalAlignment="Center" BorderBrush="{x:Null}" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" VerticalContentAlignment="Center" Foreground="White" FontSize="18">
+            <TextBox.Background>
+                <ImageBrush ImageSource="/Monopoly;component/Images/button4.png" Stretch="UniformToFill"/>
+            </TextBox.Background>
+        </TextBox>
         <TextBlock Grid.Row="1" Grid.Column="0" Text="Couleur :"/>
-        <xctk:ColorPicker Grid.Row="1" Grid.Column="1" SelectedColor="{Binding SelectedPlayer.ColorString}" AvailableColors="{Binding AvailableColors}" ShowAvailableColors="True" ShowRecentColors="False" ShowStandardColors="False" ShowTabHeaders="False" Height="22" DisplayColorAndName="True" VerticalAlignment="Top"/>
+        <xctk:ColorPicker Grid.Row="1" Grid.Column="1" SelectedColor="{Binding SelectedPlayer.ColorString}" AvailableColors="{Binding AvailableColors}" ShowAvailableColors="True" ShowRecentColors="False" ShowStandardColors="False" ShowTabHeaders="False" Height="40" DisplayColorAndName="True" VerticalAlignment="Top" BorderBrush="{x:Null}" FontSize="18" Foreground="Black">
+            <xctk:ColorPicker.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="/Monopoly;component/Images/button4.png"/>
+            </xctk:ColorPicker.Background>
+        </xctk:ColorPicker>
         <TextBlock Grid.Row="2" Grid.Column="0" Text="Solde :"/>
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedPlayer.Balance}" Height="22" VerticalAlignment="Top"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedPlayer.Balance}" Height="49" VerticalAlignment="Center" SelectionBrush="{x:Null}" CaretBrush="{x:Null}" BorderBrush="{x:Null}" Foreground="White" VerticalContentAlignment="Center" FontSize="18">
+            <TextBox.Background>
+                <ImageBrush Stretch="UniformToFill" ImageSource="/Monopoly;component/Images/button4.png"/>
+            </TextBox.Background>
+        </TextBox>
     </Grid>
 </UserControl>

@@ -34,5 +34,25 @@ namespace Monopoly
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(_propertyName));
         }
+
+        private void PlayerEditView_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void ListView_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void PlayerEditView_Loaded_1(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void TextBox_TextChanged(object sender, System.Windows.Controls.TextChangedEventArgs e)
+        {
+
+        }
     }
 }

@@ -28,7 +28,7 @@
     <!-- start EMPTY template -->
     <DataTemplate x:Key="EmptyCaseTemplate">
         <!-- Textblock working with stretch alignement -->
-        <TextBlock IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+         <TextBlock IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
     </DataTemplate>
 
     <!-- end EMPTY template -->
@@ -50,7 +50,7 @@
     <!-- start PRICE_TEXT_IMAGE template -->
 
     <DataTemplate x:Key="PriceTextImageCaseTemplate">
-        <Grid Margin="5">
+        <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="*"/>
@@ -59,6 +59,18 @@
             <TextBlock Text="{Binding Text}" HorizontalAlignment="Center" Grid.Row="0" />
             <Image Source="{Binding ImagePath}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"/>
             <TextBlock Text="{Binding Price, StringFormat='{}{0} $'}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" />
+            <ItemsControl Grid.Row="0" Grid.RowSpan="2" ItemsSource="{Binding Players}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Ellipse Fill="{Binding Color}"  Width="40" Height="40" />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
     </DataTemplate>
     
@@ -130,14 +142,17 @@
     <!-- start START CASE template -->
 
     <DataTemplate x:Key="StartCaseTemplate" DataType="{x:Type cases:StartCase}">
-        <Grid Margin="5">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="30"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="30"/>
-            </Grid.RowDefinitions>
-            <TextBlock Grid.Row="0" Text="START" HorizontalAlignment="Center" />
-            <TextBlock Grid.Row="2" Text="{Binding Gain}" HorizontalAlignment="Center" />
+        <Grid>
+            <!--<TextBlock IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>-->
+            <ItemsControl ItemsSource="{Binding Players}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Canvas>
+                            <Ellipse Fill="{Binding Color}" Canvas.Left="10" Canvas.Right="10" Width="50" Height="50" />
+                        </Canvas>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
     </DataTemplate>
 
