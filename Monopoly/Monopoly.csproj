@@ -215,5 +215,20 @@
   <ItemGroup>
     <Resource Include="Images\dice0.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\chance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\chance_r.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\officer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\jail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\electricity.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

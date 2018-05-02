@@ -3,43 +3,47 @@
   <Cases>
     <Case xsi:type="EmptyCase" />
     <Case xsi:type="PropertyCase" color="#FFFF0000" property_name="THE STRAND" price="220" />
-    <Case xsi:type="ChanceCase" text="CHANCE" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\clover.png" />
+    <Case xsi:type="ChanceCase" text="CHANCE" image_path="../Images/chance.png" />
     <Case xsi:type="PropertyCase" color="#FFFF0000" property_name="FLEET STREET" price="220" />
     <Case xsi:type="PropertyCase" color="#FFFF0000" property_name="TRAFALGAR SQUARE" price="240" />
-    <Case xsi:type="StationCase" text="FENCHURCH ST STATION" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\train.png" price="200" />
+    <Case xsi:type="StationCase" text="FENCHURCH ST STATION" image_path="../Images/train.png" price="200" />
     <Case xsi:type="PropertyCase" color="#FFFFFF00" property_name="LEICESTER SQUARE" price="260" />
     <Case xsi:type="PropertyCase" color="#FFFFFF00" property_name="COVENTRY STREET" price="260" />
     <Case xsi:type="EmptyCase" />
     <Case xsi:type="PropertyCase" color="#FFFFFF00" property_name="PICCADILLY" price="280" />
-    <Case xsi:type="JailCase" text="GO TO JAIL" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\handcuffs.png" />
+    <Case xsi:type="JailCase" text="GO TO JAIL" image_path="../Images/officer.png" />
     <Case xsi:type="PropertyCase" color="#FFFFA500" property_name="VINE STREET" price="200" />
     <Case xsi:type="PropertyCase" color="#FF008000" property_name="REGENT STREET" price="300" />
     <Case xsi:type="PropertyCase" color="#FFFFA500" property_name="MARLBOROUGH STREET" price="180" />
     <Case xsi:type="PropertyCase" color="#FF008000" property_name="OXFORD STREET" price="300" />
-    <Case xsi:type="ChestCase" text="COMMUNITY CHEST" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\chest.png" />
-    <Case xsi:type="ChestCase" text="COMMUNITY CHEST" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\chest.png" />
+    <Case xsi:type="ChestCase" text="COMMUNITY CHEST" image_path="../Images/chest.png" />
+    <Case xsi:type="ChestCase" text="COMMUNITY CHEST" image_path="../Images/chest.png" />
     <Case xsi:type="PropertyCase" color="#FFFFA500" property_name="BOW STREET" price="180" />
     <Case xsi:type="PropertyCase" color="#FF008000" property_name="BOND STREET" price="320" />
-    <Case xsi:type="StationCase" text="MARYLEBONE STATION" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\train.png" price="200" />
-    <Case xsi:type="StationCase" text="LIVERPOOL ST. STATION" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\train.png" price="1200" />
+    <Case xsi:type="StationCase" text="MARYLEBONE STATION" image_path="../Images/train.png" price="200" />
+    <Case xsi:type="StationCase" text="LIVERPOOL ST. STATION" image_path="../Images/train.png" price="1200" />
     <Case xsi:type="PropertyCase" color="#FFFFC0CB" property_name="NORTHUMBERLAND AVENUE" price="160" />
-    <Case xsi:type="ChanceCase" text="CHANCE" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\clover.png" />
+    <Case xsi:type="ChanceCase" text="CHANCE" image_path="../Images/chance_r.png" />
     <Case xsi:type="PropertyCase" color="#FFFFC0CB" property_name="WHITEHALL" price="140" />
     <Case xsi:type="PropertyCase" color="#FF00008B" property_name="PARK LANE" price="350" />
-    <Case xsi:type="EmptyCase" />
-    <Case xsi:type="TaxCase" text="SUPER TAX" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\tax.png" price="100" />
+	<Case xsi:type="StationCase" text="ELECTRICITY COMPAGNY" image_path="../Images/electricity.png" price="150" />
+    <!--<Case xsi:type="EmptyCase" />-->
+	
+	
+    <Case xsi:type="TaxCase" text="SUPER TAX" image_path="../Images/tax.png" price="100" />
     <Case xsi:type="PropertyCase" color="#FFFFC0CB" property_name="PALL MALL" price="140" />
     <Case xsi:type="PropertyCase" color="#FF00008B" property_name="MAYFAIR" price="400" />
-    <Case xsi:type="EmptyCase" />
+	<Case xsi:type="JailCase" text="JAIL" image_path="../Images/jail.png" price="100" />
+    <!--<Case xsi:type="EmptyCase" />-->
     <Case xsi:type="PropertyCase" color="#FFADD8E6" property_name="PENTONVILLE ROAD" price="120" />
     <Case xsi:type="PropertyCase" color="#FFADD8E6" property_name="EUSTON ROAD" price="100" />
-    <Case xsi:type="ChanceCase" text="CHANCE" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\clover.png" />
+    <Case xsi:type="ChanceCase" text="CHANCE" image_path="../Images/chance_r.png" />
     <Case xsi:type="PropertyCase" color="#FFADD8E6" property_name="THE ANGEL ISLINGTON" price="100" />
-    <Case xsi:type="StationCase" text="KING'S CROSS STATION" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\train.png" price="200" />
-    <Case xsi:type="TaxCase" text="INCOME TAX" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\tax.png" price="200" />
+    <Case xsi:type="StationCase" text="KING'S CROSS STATION" image_path="../Images/train.png" price="200" />
+    <Case xsi:type="TaxCase" text="INCOME TAX" image_path="../Images/tax.png" price="200" />
     <Case xsi:type="PropertyCase" color="#FF8B4513" property_name="WHITECHAPEL ROAD" price="60" />
-    <Case xsi:type="ChestCase" text="COMMUNITY CHEST" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\chest.png" />
+    <Case xsi:type="ChestCase" text="COMMUNITY CHEST" image_path="../Images/chest.png" />
     <Case xsi:type="PropertyCase" color="#FF8B4513" property_name="OLD KENT ROAD" price="60" />
-    <Case xsi:type="StartCase" text="START" gain="200" />
+    <Case xsi:type="StartCase" text="START" gain="200"/>
   </Cases>
 </Platter>

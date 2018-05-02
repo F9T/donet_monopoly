@@ -23,15 +23,15 @@
             <ColumnDefinition Width="90"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Game" FontWeight="Bold" TextDecorations="Underline" FontSize="15"/>
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Player turn :" Style="{StaticResource TextStyle}"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Jeu" FontWeight="Bold" TextDecorations="Underline" FontSize="15"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Au tour de :" Style="{StaticResource TextStyle}"/>
         <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding PlatterViewModel.CurrentPlayer.Name}" Foreground="{Binding PlatterViewModel.CurrentPlayer.Color}" Style="{StaticResource TextStyle}"/>
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="Balance :" Style="{StaticResource TextStyle}"/>
-        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding PlatterViewModel.Balance}" Style="{StaticResource TextStyle}"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Solde :" Style="{StaticResource TextStyle}"/>
+        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding PlatterViewModel.CurrentPlayer.InitBalance}" Style="{StaticResource TextStyle}"/>
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
             <local:DieView Die="{Binding PlatterViewModel.DieOne}" />
             <local:DieView Margin="5,0,0,0" Die="{Binding PlatterViewModel.DieSecond}" />
         </StackPanel>
-        <Button Grid.Row="4" Grid.Column="0" Width="70" HorizontalAlignment="Left" Content="Roll" Command="{Binding PlatterViewModel.RollDiceCommand}"/>
+        <Button Grid.Row="4" Grid.Column="0" Width="70" HorizontalAlignment="Left" Content="Lancer" Command="{Binding PlatterViewModel.RollDiceCommand}" Click="Button_Click"/>
     </Grid>
 </UserControl>

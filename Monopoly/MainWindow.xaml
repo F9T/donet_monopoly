@@ -13,7 +13,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
         <Menu IsMainMenu="True" Grid.Row="0">
-            <MenuItem Header="Game">
+            <MenuItem Header="Commencer le jeu">
                 <MenuItem Header="New" Command="{Binding NewGameCommand}" InputGestureText="Ctrl+N" />
                 <MenuItem Header="Quit" InputGestureText="Alt+F4"/>
             </MenuItem>

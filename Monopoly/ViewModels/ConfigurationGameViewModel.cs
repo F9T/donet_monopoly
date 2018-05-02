@@ -62,6 +62,9 @@ namespace Monopoly.ViewModels
             window?.Close();
         }
 
+        /// <summary>
+        /// Browse xml game file
+        /// </summary>
         private void BrowseGme()
         {
             var fileDialog = new OpenFileDialog

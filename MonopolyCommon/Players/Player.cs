@@ -73,7 +73,9 @@ namespace MonopolyCommon.Players
             set
             {
                 initBalance = value;
+                balance = value;
                 OnPropertyChanged(nameof(InitBalance));
+                OnPropertyChanged(nameof(Balance));
             }
         }
 

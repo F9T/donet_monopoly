@@ -15,13 +15,16 @@ namespace Monopoly.Models
         {
             Initialize();
         }
-
+        /// <summary>
+        /// This function initialize the game
+        /// user list, color for each user
+        /// </summary>
         public void Initialize()
         {
             Players = new ObservableCollection<Player>();
             PathGame = "";
 
-            //Limit colors use for players
+            //Availables colors
             AvailableColors = new ObservableCollection<ColorItem>
             {
                 new ColorItem(Colors.Blue, "Blue"),
@@ -33,6 +36,9 @@ namespace Monopoly.Models
             };
         }
 
+        /// <summary>
+        /// Function use to add new user
+        /// </summary>
         public void AddPlayer()
         {
             var color = GetNotChooseColor();
@@ -41,11 +47,16 @@ namespace Monopoly.Models
                 MessageBox.Show("Fatal color choose error!");
                 return;
             }
-            var player = new Player("no name", color);
+
+            var player = new Player("new player", color);
             Players.Add(player);
             SelectedPlayer = player;
         }
 
+        /// <summary>
+        /// Choose a color for new user. The color must not be already  choose
+        /// </summary>
+        /// <returns></returns>
         private SolidColorBrush GetNotChooseColor()
         {
             var copyAvailableColor = new List<ColorItem>(AvailableColors);
@@ -71,6 +82,9 @@ namespace Monopoly.Models
             return null;
         }
 
+        /// <summary>
+        /// Remove selected player to the list
+        /// </summary>
         public void DeleteSelectedPlayer()
         {
             if (SelectedPlayer != null)
@@ -80,17 +94,25 @@ namespace Monopoly.Models
             }
         }
 
+        /// <summary>
+        /// Maximum of 6 players for the game
+        /// </summary>
+        /// <returns></returns>
         public bool CanAddPlayer()
         {
             return Players.Count < 6;
         }
 
+        //Path of platter (xml file)
         public string PathGame { get; set; }
 
+        //Collection of color for player
         public ObservableCollection<ColorItem> AvailableColors { get; set; }
 
+        //Colelction of players
         public ObservableCollection<Player> Players { get; set; }
 
+        //Selected player
         public Player SelectedPlayer { get; set; }
 
         public void Dispose()

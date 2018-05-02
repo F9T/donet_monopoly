@@ -14,11 +14,11 @@
             <ColumnDefinition Width="80"/>
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="Name :"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Nom :"/>
         <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding SelectedPlayer.Name}" Height="22" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="Color :"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="Couleur :"/>
         <xctk:ColorPicker Grid.Row="1" Grid.Column="1" SelectedColor="{Binding SelectedPlayer.ColorString}" AvailableColors="{Binding AvailableColors}" ShowAvailableColors="True" ShowRecentColors="False" ShowStandardColors="False" ShowTabHeaders="False" Height="22" DisplayColorAndName="True" VerticalAlignment="Top"/>
-        <TextBlock Grid.Row="2" Grid.Column="0" Text="Start balance :"/> 
-        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedPlayer.InitBalance}" Height="22" VerticalAlignment="Top"/>
+        <TextBlock Grid.Row="2" Grid.Column="0" Text="Solde :"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding SelectedPlayer.Balance}" Height="22" VerticalAlignment="Top"/>
     </Grid>
 </UserControl>

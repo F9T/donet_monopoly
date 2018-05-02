@@ -17,7 +17,7 @@
             <Border.LayoutTransform>
                 <RotateTransform Angle="-45" />
             </Border.LayoutTransform>
-            <TextBlock Text="Chance card" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Carte chance" VerticalAlignment="Center" HorizontalAlignment="Center"/>
         </Border>
         <views:InfoPlatterView Grid.Row="0" Grid.Column="1" />
         <views:StatePlatterPlayerView Grid.Row="1" Grid.Column="0"/>
