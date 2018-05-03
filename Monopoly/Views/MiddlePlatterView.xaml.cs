@@ -11,5 +11,10 @@ namespace Monopoly.Views
         {
             InitializeComponent();
         }
+
+        private void InfoPlatterView_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
     }
 }

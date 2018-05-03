@@ -25,8 +25,8 @@
             </Border.LayoutTransform>
             <TextBlock Text="Carte chance" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Arial" FontSize="20" FontWeight="Bold" Foreground="White"/>
         </Border>
-        <views:InfoPlatterView Grid.Row="0" Grid.Column="1" />
-        <views:StatePlatterPlayerView Grid.Row="1" Grid.Column="0"/>
+        <views:InfoPlatterView Grid.Row="0" Grid.Column="1" Loaded="InfoPlatterView_Loaded" />
+        <views:StatePlatterPlayerView Grid.Row="1" Grid.Column="0" FontSize="20" FontFamily="Arial" FontWeight="Bold"/>
         <Border Grid.Row="1" Grid.Column="1" BorderThickness="1" MinHeight="80" MinWidth="120" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Bottom">
             <Border.Background>
                 <ImageBrush ImageSource="/Monopoly;component/Images/b2.png" TileMode="Tile" Stretch="UniformToFill"/>
@@ -36,7 +36,7 @@
             </Border.LayoutTransform>
             <TextBlock Text="Chest card" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontFamily="Arial" FontSize="20"/>
         </Border>
-        <Image Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="199" Margin="-51,95" VerticalAlignment="Center" Width="696" Source="/Monopoly;component/Images/logo.png" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
+        <Image Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="199" Margin="-51,95" VerticalAlignment="Center"  Source="/Monopoly;component/Images/logo.png" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -46,6 +46,11 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
+        <Label Content="{Binding PlatterViewModel.InfoBulle, FallbackValue=Bienvenue!}" HorizontalAlignment="Center" Margin="107,86,53,22" Grid.Row="1" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Height="70" Grid.ColumnSpan="2" Width="468" FontSize="50" FontFamily="Arial" Foreground="White">
+            <Label.Background>
+                <ImageBrush ImageSource="/Monopoly;component/Images/button4.png" Stretch="UniformToFill" TileMode="Tile"/>
+            </Label.Background>
+        </Label>
     </Grid>
 </UserControl>
 
