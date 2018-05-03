@@ -73,5 +73,6 @@
         <views:CaseView Grid.Row="10" Grid.Column="8" Case="{Binding Platter.Cases[37]}" Orientation="North"  />
         <views:CaseView Grid.Row="10" Grid.Column="9" Case="{Binding Platter.Cases[38]}" Orientation="North"  />
         <views:CaseView Grid.Row="10" Grid.Column="10" Case="{Binding Platter.Cases[39]}" Orientation="NortWest"  />
+        <Image Grid.ColumnSpan="5" Grid.Column="3" HorizontalAlignment="Left" Height="100" Margin="19,0,0,0" Grid.Row="4" Grid.RowSpan="4" VerticalAlignment="Top" Width="100"/>
     </Grid>
 </UserControl>

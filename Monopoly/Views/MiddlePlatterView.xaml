@@ -4,6 +4,9 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:views="clr-namespace:Monopoly.Views">
+    <UserControl.Background>
+        <ImageBrush ImageSource="/Monopoly;component/Images/center_background.jpg" TileMode="Tile" Stretch="UniformToFill"/>
+    </UserControl.Background>
     <Grid Margin="10">
         <Grid.RowDefinitions>
             <RowDefinition />
@@ -13,20 +16,36 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Border Grid.Row="0" Grid.Column="0" BorderThickness="1" BorderBrush="Black" RenderTransformOrigin="0.5,0.5" MinHeight="80" MinWidth="120" HorizontalAlignment="Left" VerticalAlignment="Top">
+        <Border Grid.Row="0" Grid.Column="0" BorderThickness="1" RenderTransformOrigin="0.5,0.5" MinHeight="80" MinWidth="120" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <Border.Background>
+                <ImageBrush ImageSource="/Monopoly;component/Images/b1.png" Stretch="UniformToFill" TileMode="Tile"/>
+            </Border.Background>
             <Border.LayoutTransform>
                 <RotateTransform Angle="-45" />
             </Border.LayoutTransform>
-            <TextBlock Text="Carte chance" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Text="Carte chance" VerticalAlignment="Center" HorizontalAlignment="Center" FontFamily="Arial" FontSize="20" FontWeight="Bold" Foreground="White"/>
         </Border>
         <views:InfoPlatterView Grid.Row="0" Grid.Column="1" />
         <views:StatePlatterPlayerView Grid.Row="1" Grid.Column="0"/>
-        <Border Grid.Row="1" Grid.Column="1" BorderThickness="1" BorderBrush="Black" MinHeight="80" MinWidth="120" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+        <Border Grid.Row="1" Grid.Column="1" BorderThickness="1" MinHeight="80" MinWidth="120" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+            <Border.Background>
+                <ImageBrush ImageSource="/Monopoly;component/Images/b2.png" TileMode="Tile" Stretch="UniformToFill"/>
+            </Border.Background>
             <Border.LayoutTransform>
                 <RotateTransform Angle="-45" />
             </Border.LayoutTransform>
-            <TextBlock Text="Chest card" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-        </Border>  
+            <TextBlock Text="Chest card" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" FontWeight="Bold" FontFamily="Arial" FontSize="20"/>
+        </Border>
+        <Image Grid.ColumnSpan="2" HorizontalAlignment="Center" Height="199" Margin="-51,95" VerticalAlignment="Center" Width="696" Source="/Monopoly;component/Images/logo.png" RenderTransformOrigin="0.5,0.5" Grid.RowSpan="2">
+            <Image.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="0.142"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Image.RenderTransform>
+        </Image>
     </Grid>
 </UserControl>
 

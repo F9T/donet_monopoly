@@ -12,6 +12,9 @@
         </Style>
     </UserControl.Resources>
     <StackPanel Orientation="Vertical">
+        <StackPanel.Background>
+            <ImageBrush/>
+        </StackPanel.Background>
         <TextBlock Text="Soldes joueurs" FontWeight="Bold" FontSize="15" TextDecorations="Underline" Style="{StaticResource TextStyle}"/>
         <ItemsControl Margin="0,5,0,0" ItemsSource="{Binding PlatterViewModel.Players}">
             <ItemsControl.ItemsPanel>

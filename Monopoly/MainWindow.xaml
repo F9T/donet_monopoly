@@ -18,7 +18,7 @@
                 <MenuItem Header="Quit" InputGestureText="Alt+F4"/>
             </MenuItem>
         </Menu>
-        <views:PlatterControlView Grid.Row="1" CaseMinHeight="90" CaseMinWidth="90" />
+        <views:PlatterControlView Grid.Row="1" CaseMinHeight="90" CaseMinWidth="90" FontSize="16" FontFamily="Arial Narrow" FontWeight="Bold" />
     </Grid>
 </mah:MetroWindow>
 
