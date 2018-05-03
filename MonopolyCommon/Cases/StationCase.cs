@@ -14,7 +14,6 @@ namespace MonopolyCommon.Cases
 
         public override void RandomFill()
         {
-
         }
 
         public override void Action(Player _player, Platter _platter)

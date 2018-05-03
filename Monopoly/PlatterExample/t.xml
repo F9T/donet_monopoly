@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Platter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Cases>
+    <Case xsi:type="ParkingCase" text="FREE PARKING" image_path="" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="JailCase" text="GO TO JAIL" image_path="" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="FreeJail" text="FREE JAIL" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="StartCase" text="START" price="0" gain="200" />
+  </Cases>
+  <Players />
+</Platter>

@@ -47,7 +47,7 @@ namespace MonopolyCommon
                         createCase = new JailCase();
                         break;
                     case 29:
-                        createCase = new JailCase();
+                        createCase = new FreeJail();
                         break;
                 }
                 Cases.Add(createCase);
@@ -58,22 +58,39 @@ namespace MonopolyCommon
         public void FillRandomCase()
         {
             FillDefaultCase();
-         /*   Cases.Clear();
-            var casesType = new []
+            Cases.Clear();
+            var casesType = new[]
             {
-                typeof(PropertyCase), typeof(ChanceCase), typeof(JailCase), typeof(PropertyCase),
+                typeof(PropertyCase), typeof(ChanceCase), typeof(PropertyCase),
                 typeof(ChestCase), typeof(PropertyCase), typeof(StationCase), typeof(TaxCase), typeof(PropertyCase),
                 typeof(PropertyCase), typeof(PropertyCase)
             };
             int min = 0, max = casesType.Length;
             for (int i = 0; i < NumberCase - 1; i++)
             {
-                var type = casesType[random.Next(min, max)];
-                var randomCase =(AbstractCase) Activator.CreateInstance(type);
-                randomCase.RandomFill();
-                Cases.Add(randomCase);
+                if (i == 0)
+                {
+                    Cases.Add(new ParkingCase());
+
+                } 
+                else if (i == 10)
+                {
+
+                    Cases.Add(new JailCase());
+                }
+                else if (i == 29)
+                {
+                    Cases.Add(new FreeJail());
+                }
+                else
+                {
+                    var type = casesType[random.Next(min, max)];
+                    var randomCase = (AbstractCase)Activator.CreateInstance(type);
+                    randomCase.RandomFill();
+                    Cases.Add(randomCase);
+                }
             }
-            Cases.Add(new StartCase());*/
+            Cases.Add(new StartCase());
         }
 
         public void Serialize(string _path)
@@ -86,8 +103,10 @@ namespace MonopolyCommon
             Cases[39].Players = new ObservableCollection<Player>(Players);
         }
 
+        [XmlIgnore]
         public bool IsStarted { get; set; }
 
+        [XmlIgnore]
         public Player CurrentPlayer { get; set; }
 
         [XmlArray(ElementName = "Cases")]
@@ -106,7 +125,6 @@ namespace MonopolyCommon
 
         public void Dispose()
         {
-
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Platter xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Cases>
-    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="ParkingCase" text="FREE PARKING" image_path="" />
     <Case xsi:type="PropertyCase" color="#FFFF0000" property_name="THE STRAND" price="220" />
     <Case xsi:type="ChanceCase" text="CHANCE" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\clover.png" />
     <Case xsi:type="PropertyCase" color="#FFFF0000" property_name="FLEET STREET" price="220" />
@@ -30,7 +30,7 @@
     <Case xsi:type="TaxCase" text="SUPER TAX" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\tax.png" price="100" />
     <Case xsi:type="PropertyCase" color="#FFFFC0CB" property_name="PALL MALL" price="140" />
     <Case xsi:type="PropertyCase" color="#FF00008B" property_name="MAYFAIR" price="400" />
-    <Case xsi:type="EmptyCase" />
+    <Case xsi:type="FreeJail" text="FREE JAIL" />
     <Case xsi:type="PropertyCase" color="#FFADD8E6" property_name="PENTONVILLE ROAD" price="120" />
     <Case xsi:type="PropertyCase" color="#FFADD8E6" property_name="EUSTON ROAD" price="100" />
     <Case xsi:type="ChanceCase" text="CHANCE" image_path="D:\HE-ARC\DotNet\Projets\monopoly\dotnet_monopoly\Monopoly\Images\clover.png" />

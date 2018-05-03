@@ -24,7 +24,7 @@ namespace MonopolyEditor.Windows
 
             ChangeCaseCommand = new RelayCommand(_param => ChangeType(), _param => true);
 
-            TypeCases = new ObservableCollection<string> { "", "Empty", "Chance", "Chest", "Jail", "Property", "Station", "Tax" };
+            TypeCases = new ObservableCollection<string> { "", "Empty", "Chance", "Chest", "Property", "Station", "Tax" };
             SelectedCaseType = TypeCases.First();
         }
 

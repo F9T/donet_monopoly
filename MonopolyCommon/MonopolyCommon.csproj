@@ -66,6 +66,7 @@
       <DependentUpon>CaseEditTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cases\AbstractCase.cs" />
+    <Compile Include="Cases\FreeJail.cs" />
     <Compile Include="Cases\ParkingCase.cs" />
     <Compile Include="Cases\Categories\PriceTextImageCase.cs" />
     <Compile Include="Cases\Categories\TextImageCase.cs" />

@@ -8,6 +8,8 @@ namespace MonopolyCommon.Cases.Categories
     [XmlInclude(typeof(ChanceCase))]
     [XmlInclude(typeof(JailCase))]
     [XmlInclude(typeof(ChestCase))]
+    [XmlInclude(typeof(FreeJail))]
+    [XmlInclude(typeof(ParkingCase))]
     public abstract class TextImageCase : AbstractCase
     {
         private string text;

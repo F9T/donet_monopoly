@@ -1,18 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using MonopolyCommon.Cases.Categories;
 using MonopolyCommon.Players;
 
 namespace MonopolyCommon.Cases
 {
     [Serializable]
-    public class ParkingCase : TextImageCase
+    public class FreeJail : TextImageCase
     {
-        public ParkingCase()
+        public FreeJail()
         {
-            //Default values
-            Text = "FREE PARKING";
-            ImagePath = "";
-            Type = "Parking";
+            Text = "FREE JAIL";
+            Type = "free_jail";
             IsEditable = false;
         }
 
@@ -23,12 +25,12 @@ namespace MonopolyCommon.Cases
 
         public override void Action(Player _player, Platter _platter)
         {
-            throw new NotImplementedException();
+
         }
 
         public override bool IsLegal()
         {
-            throw new NotImplementedException();
+            return true;
         }
     }
 }
