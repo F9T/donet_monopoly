@@ -51,15 +51,15 @@
 
     <DataTemplate x:Key="PriceTextImageCaseTemplate">
         <Grid>
-            <Grid.RowDefinitions>
+            <!--<Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
             <TextBlock Text="{Binding Text}" HorizontalAlignment="Center" Grid.Row="0" />
             <Image Source="{Binding ImagePath}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"/>
-            <TextBlock Text="{Binding Price, StringFormat='{}{0} $'}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" />
-            <ItemsControl Grid.Row="0" Grid.RowSpan="2" ItemsSource="{Binding Players}">
+            <TextBlock Text="{Binding Price, StringFormat='{}{0} $'}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" />-->
+            <ItemsControl Grid.Row="0" Grid.RowSpan="10" ItemsSource="{Binding Players}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Vertical" />
@@ -67,7 +67,7 @@
                 </ItemsControl.ItemsPanel>
                 <ItemsControl.ItemTemplate>
                     <DataTemplate>
-                        <Ellipse Fill="{Binding Color}"  Width="40" Height="40" />
+                        <Ellipse Fill="{Binding Color}"  Width="20" Height="20"  />
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>
             </ItemsControl>
@@ -142,18 +142,6 @@
     <!-- start START CASE template -->
 
     <DataTemplate x:Key="StartCaseTemplate" DataType="{x:Type cases:StartCase}">
-        <Grid>
-            <!--<TextBlock IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>-->
-            <ItemsControl ItemsSource="{Binding Players}">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate>
-                        <Canvas>
-                            <Ellipse Fill="{Binding Color}" Canvas.Left="10" Canvas.Right="10" Width="50" Height="50" />
-                        </Canvas>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </Grid>
     </DataTemplate>
 
     <!-- end START CASE template -->

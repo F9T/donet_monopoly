@@ -32,7 +32,7 @@
             <local:DieView Die="{Binding PlatterViewModel.DieOne}" />
             <local:DieView Margin="5,0,0,0" Die="{Binding PlatterViewModel.DieSecond}" />
         </StackPanel>
-        <Button Grid.Row="4" Grid.Column="0" Content="Lancer" Command="{Binding PlatterViewModel.RollDiceCommand}" Click="Button_Click" Height="50" Margin="0,0,0,-24" BorderBrush="{x:Null}" Foreground="White" FontSize="18" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="139">
+        <Button Grid.Row="4" Grid.Column="0" Content="Lancer" Command="{Binding PlatterViewModel.RollDiceCommand}" Height="50" Margin="0,0,0,-24" BorderBrush="{x:Null}" Foreground="White" FontSize="18" VerticalAlignment="Bottom">
             <Button.Background>
                 <ImageBrush Stretch="UniformToFill" ImageSource="/Monopoly;component/Images/button3.png" TileMode="Tile"/>
             </Button.Background>

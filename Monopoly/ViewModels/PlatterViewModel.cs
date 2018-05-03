@@ -14,22 +14,46 @@ namespace Monopoly.ViewModels
     {
         private Die dieOne;
         private Die dieSecond;
+        private string infoBulle;
 
         public PlatterViewModel()
         {
             Model = new Platter();
             DieOne = new Die(1, 6);
             DieSecond = new Die(1, 6);
-            RollDiceCommand = new RelayCommand(_param => RollDice(), _param => true);
+            RollDiceCommand = new RelayCommand(_param => RollDice(), _param => IsStarted);
         }
 
         public void RollDice()
         {
             DieOne.Roll();
             DieSecond.Roll();
+
+            int sum = DieOne.Roll() + DieSecond.Roll();
+
+            if(sum == 12)
+            {
+                InfoBulle = "12! Relancez";
+            }
+            else
+            {
+                InfoBulle = "Avancez de " + sum + " cases";
+
+            }
+            
         }
 
         public IModel Model { get; set; }
+
+        public string InfoBulle
+        {
+            get => infoBulle;
+            set
+            {
+                infoBulle = value;
+                OnPropertyChanged(nameof(InfoBulle));
+            }
+        }
 
         public bool IsStarted
         {
@@ -139,5 +163,6 @@ namespace Monopoly.ViewModels
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(_propertyName));
         }
+        
     }
 }
