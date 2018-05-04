@@ -8,6 +8,9 @@ using Xceed.Wpf.Toolkit;
 
 namespace Monopoly.Models
 {
+    /// <summary>
+    /// Class to handle global game configuration
+    /// </summary>
     [Serializable]
     public class ConfigurationGame : IModel
     {

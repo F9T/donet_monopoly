@@ -9,29 +9,55 @@ using MonopolyCommon.Players;
 
 namespace MonopolyCommon
 {
+    /// <summary>
+    /// Model class to handle platter and player data
+    /// </summary>
     [Serializable]
     public class Platter : IModel
     {
+        // Total number of cases
         private const int NumberCase = 40;
+
+        // Random Generator
         private Random random;
 
+        /// <summary>
+        /// Default initializer.
+        /// Used be editor
+        /// </summary>
         public Platter()
         {
             Initialize();
         }
 
+        /// <summary>
+        /// Game platter initializer with players and cases
+        /// </summary>
         public void Initialize()
         {
-            random = new Random(DateTime.Now.Millisecond);
-            Cases = new ObservableCollection<AbstractCase>();
-            Players = new ObservableCollection<Player>();
+            random = new Random(DateTime.Now.Millisecond);      //Just initialize random generator
+
+            // Init game
+            Cases = new ObservableCollection<AbstractCase>();   //Observable list to handle cases
+            Players = new ObservableCollection<Player>();       //Observable list to handle players
+            IsStarted = false;
+
             //Create start case
             //Default name
+
+            // Set save/load variables
             PathFile = "";
             AlreadySerialize = false;
-            IsStarted = false;
+            
         }
 
+        /// <summary>
+        /// Fill the default cases :
+        /// -Start
+        /// -Parking
+        /// -Jail
+        /// -FreeJail
+        /// </summary>
         public void FillDefaultCase()
         {
             Cases.Clear();
@@ -55,6 +81,9 @@ namespace MonopolyCommon
             Cases.Add(new StartCase());
         }
 
+        /// <summary>
+        /// Method to fill random cases
+        /// </summary>
         public void FillRandomCase()
         {
             FillDefaultCase();
@@ -93,15 +122,23 @@ namespace MonopolyCommon
             Cases.Add(new StartCase());
         }
 
+        /// <summary>
+        /// Serizalize object to provide save file exportation
+        /// </summary>
+        /// <param name="_path">path of the file</param>
         public void Serialize(string _path)
         {
             var platter = PlatterSerializer.Deserialize(_path);
             Cases = new ObservableCollection<AbstractCase>(platter.Cases);
+
             PathFile = platter.PathFile;
             IsStarted = true;
-            //All player in starting block
+
+            //All players in starting block
             Cases[39].Players = new ObservableCollection<Player>(Players);
         }
+
+        // --------- Getters / Setters ----------
 
         [XmlIgnore]
         public bool IsStarted { get; set; }
@@ -123,10 +160,13 @@ namespace MonopolyCommon
         [XmlIgnore]
         public bool AlreadySerialize { get; set; }
 
+        // --------------------------------------
+
         public void Dispose()
         {
         }
 
+        // Delegate
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected virtual void OnPropertyChanged([CallerMemberName] string _propertyName = null)

@@ -48,6 +48,7 @@ namespace MonopolyEditor.ViewModels
             switch (_gameType)
             {
                 case EnumGenerateGameType.Classic:
+                    //TODO
                     break;
                 case EnumGenerateGameType.Random:
                     IsCreated = true;

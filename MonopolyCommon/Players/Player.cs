@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MonopolyCommon.Cases;
+using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Media;
@@ -6,12 +7,16 @@ using System.Xml.Serialization;
 
 namespace MonopolyCommon.Players
 {
+    /// <summary>
+    /// Model to handle a player data
+    /// </summary>
     [Serializable]
     public class Player : INotifyPropertyChanged
     {
-        private SolidColorBrush color;
+        private SolidColorBrush color;      // Associated color
         private string name, colorString;
-        private int balance, initBalance;
+        private int balance, initBalance;   // Money of the player
+        private AbstractCase currentCase;
 
         /// <summary>
         /// Default constructor for serialization
@@ -21,6 +26,12 @@ namespace MonopolyCommon.Players
             
         }
 
+        /// <summary>
+        /// Complete constructor for player
+        /// </summary>
+        /// <param name="_name">player name</param>
+        /// <param name="_color">player color</param>
+        /// <param name="_initBalance">player's start cash/money/balance</param>
         public Player(string _name, SolidColorBrush _color, int _initBalance = 1500)
         {
             Name = _name;
@@ -28,6 +39,8 @@ namespace MonopolyCommon.Players
             Balance = _initBalance;
             InitBalance = _initBalance;
         }
+
+        // --------- Getters / Setters ----------
 
         [XmlIgnore]
         public SolidColorBrush Color
@@ -89,6 +102,21 @@ namespace MonopolyCommon.Players
                 OnPropertyChanged(nameof(Balance));
             }
         }
+
+        [XmlIgnore]
+        public AbstractCase CurrentCase
+        {
+            get
+            {
+                return currentCase;
+            }
+            set
+            {
+                currentCase = value;
+            }
+        }
+
+        // --------------------------------------
 
         public event PropertyChangedEventHandler PropertyChanged;
 

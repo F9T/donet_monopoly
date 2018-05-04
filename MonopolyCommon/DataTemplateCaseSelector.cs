@@ -5,6 +5,9 @@ using MonopolyCommon.Cases.Categories;
 
 namespace MonopolyCommon
 {
+    /// <summary>
+    /// Class to provide case's templates selection
+    /// </summary>
     public class DataTemplateCaseSelector : DataTemplateSelector
     {
         public DataTemplate TextImageCaseTemplate { get; set; }

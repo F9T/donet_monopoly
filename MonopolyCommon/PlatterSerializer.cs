@@ -5,8 +5,16 @@ using System.Xml.Serialization;
 
 namespace MonopolyCommon
 {
+    /// <summary>
+    /// Class to provide platter de/serialization.
+    /// </summary>
     public static class PlatterSerializer
     {
+        /// <summary>
+        /// Serialize platter to file = saving
+        /// </summary>
+        /// <param name="_platter">platter to serialize/save</param>
+        /// <returns>true if succeded</returns>
         public static bool Serialize(Platter _platter)
         {
             var fileInfo = new FileInfo(_platter.PathFile);
@@ -30,6 +38,11 @@ namespace MonopolyCommon
             return false;
         }
 
+        /// <summary>
+        /// Deserialize file to platter = loading
+        /// </summary>
+        /// <param name="_path">path of the file to deserialize/load</param>
+        /// <returns></returns>
         public static Platter Deserialize(string _path)
         {
             var fileInfo = new FileInfo(_path);

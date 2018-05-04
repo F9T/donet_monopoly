@@ -3,15 +3,24 @@ using System.Runtime.CompilerServices;
 
 namespace MonopolyCommon
 {
+    /// <summary>
+    /// Abstract class to centralize file managing interface
+    /// </summary>
     public abstract class AbstractFileManager : INotifyPropertyChanged
     {
+        // states
         private bool isCreated, isSaved;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         protected AbstractFileManager()
         {
             IsCreated = false;
             IsSaved = false;
         }
+
+        // ------- Global commands -------
 
         protected abstract void New();
         protected abstract bool Close();
@@ -19,6 +28,7 @@ namespace MonopolyCommon
         protected abstract void Save();
         protected abstract void SaveAs();
 
+        // ------------------------------
 
         public bool IsCreated
         {

@@ -7,40 +7,99 @@ using MonopolyCommon;
 using MonopolyCommon.Cases;
 using MonopolyCommon.Interfaces;
 using MonopolyCommon.Players;
+using System;
 
 namespace Monopoly.ViewModels
 {
+    /// <summary>
+    /// Main ViewModel for platter
+    /// </summary>
     public class PlatterViewModel : IViewModel
     {
+        // The game possess 2 dices to roll
         private Die dieOne;
         private Die dieSecond;
+
+        // Info shown on screen when player roll the dice
         private string infoBulle;
 
+        // Turn variables
+        private int turnCount;
+        private int doubleDiceCount;
+        private bool doPlayAgain;
+
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public PlatterViewModel()
         {
+            // Init Platter model
             Model = new Platter();
+
+            // Init dices
             DieOne = new Die(1, 6);
             DieSecond = new Die(1, 6);
             RollDiceCommand = new RelayCommand(_param => RollDice(), _param => IsStarted);
+
+            // Init game vars
+            turnCount = 0;
+            doubleDiceCount = 0;
+            doPlayAgain = false;
+
+            //Set player cases
+            foreach (Player player in Players)
+            {
+                player.CurrentCase = Cases[39];
+            }
         }
 
+        /// <summary>
+        /// Action roll dice for player
+        /// </summary>
         public void RollDice()
         {
-            DieOne.Roll();
-            DieSecond.Roll();
+            turnCount++;
 
-            int sum = DieOne.Roll() + DieSecond.Roll();
+            // Roll dice process
+            int roll1 = DieOne.Roll();
+            int roll2 = DieSecond.Roll();
 
-            if(sum == 12)
+            int sum = roll1 + roll2;
+            doPlayAgain = roll1 == roll2;
+
+            // If number are the same player can re-roll dices
+            if (doPlayAgain)
             {
-                InfoBulle = "12! Relancez";
+                InfoBulle = sum+". C'est un double, Relancez";
+
+                doubleDiceCount++;
+
+                if (doubleDiceCount >= 3)
+                {
+                    //TODO send player to jail
+
+                    SetNextPlayerTurn();
+                }
             }
             else
             {
                 InfoBulle = "Avancez de " + sum + " cases";
-
+                SetNextPlayerTurn();
             }
-            
+
+            // Move player
+            Cases[38].Players.Add(CurrentPlayer);
+            Cases[39].Players.Remove(CurrentPlayer);
+
+            // TODO Execute case action
+        }
+
+        private void SetNextPlayerTurn()
+        {
+            doubleDiceCount = 0;
+
+            // Set next player as current
+            CurrentPlayer = Players[turnCount % Players.Count];
         }
 
         public IModel Model { get; set; }
@@ -130,7 +189,9 @@ namespace Monopoly.ViewModels
             Cases = ((Platter)Model).Cases;
             Players = ((Platter)Model).Players;
             PathFile = ((Platter)Model).PathFile;
+
             IsStarted = true;
+
             CurrentPlayer = Players[0];
         }
 
