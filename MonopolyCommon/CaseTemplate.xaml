@@ -28,7 +28,20 @@
     <!-- start EMPTY template -->
     <DataTemplate x:Key="EmptyCaseTemplate">
         <!-- Textblock working with stretch alignement -->
-         <TextBlock IsEnabled="False" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+        <Grid>
+            <ItemsControl Grid.Row="0" Grid.RowSpan="10" ItemsSource="{Binding Players}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Ellipse Fill="{Binding Color}"  Width="20" Height="20"  />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
     </DataTemplate>
 
     <!-- end EMPTY template -->
@@ -42,6 +55,18 @@
             </Grid.RowDefinitions>
             <TextBlock Text="{Binding Text}" HorizontalAlignment="Center" Grid.Row="0" />
             <Image Source="{Binding ImagePath}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"/>
+            <ItemsControl Grid.Row="0" Grid.RowSpan="2" ItemsSource="{Binding Players}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Ellipse Fill="{Binding Color}"  Width="20" Height="20"  />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
     </DataTemplate>
 
@@ -51,15 +76,15 @@
 
     <DataTemplate x:Key="PriceTextImageCaseTemplate">
         <Grid>
-            <!--<Grid.RowDefinitions>
+            <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
             <TextBlock Text="{Binding Text}" HorizontalAlignment="Center" Grid.Row="0" />
             <Image Source="{Binding ImagePath}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="1"/>
-            <TextBlock Text="{Binding Price, StringFormat='{}{0} $'}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" />-->
-            <ItemsControl Grid.Row="0" Grid.RowSpan="10" ItemsSource="{Binding Players}">
+            <TextBlock Text="{Binding Price, StringFormat='{}{0} $'}" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" />
+            <ItemsControl Grid.Row="0" Grid.RowSpan="3" ItemsSource="{Binding Players}">
                 <ItemsControl.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel Orientation="Vertical" />
@@ -81,6 +106,18 @@
     <DataTemplate x:Key="ChanceCaseTemplate" DataType="{x:Type cases:ChanceCase}">
         <Grid>
             <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageCaseTemplate}" />
+            <ItemsControl ItemsSource="{Binding Players}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Ellipse Fill="{Binding Color}"  Width="20" Height="20"  />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
     </DataTemplate>
     
