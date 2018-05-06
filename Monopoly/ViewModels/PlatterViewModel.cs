@@ -53,12 +53,6 @@ namespace Monopoly.ViewModels
             turnCount = 0;
             doubleDiceCount = 0;
             doPlayAgain = false;
-
-            //Set player cases
-            foreach (Player player in Players)
-            {
-                player.CurrentCase = Cases[39];
-            }
         }
 
         /// <summary>
@@ -110,12 +104,12 @@ namespace Monopoly.ViewModels
             {
                 InfoBulle = "Avancez de " + sum + " cases";
                 Reader(infoBulle);
+
+                Cases[CurrentPlayer.CurrentCaseIndex].Players.Remove(CurrentPlayer);
+                CurrentPlayer.CurrentCaseIndex -= sum;
+                Cases[CurrentPlayer.CurrentCaseIndex].Players.Add(CurrentPlayer);
                 SetNextPlayerTurn();
             }
-
-            // Move player
-            Cases[38].Players.Add(CurrentPlayer);
-            Cases[39].Players.Remove(CurrentPlayer);
 
             // TODO Execute case action
         }
@@ -215,6 +209,12 @@ namespace Monopoly.ViewModels
             Cases = ((Platter)Model).Cases;
             Players = ((Platter)Model).Players;
             PathFile = ((Platter)Model).PathFile;
+
+            //Set player cases
+            foreach (var player in Players)
+            {
+                player.CurrentCaseIndex = 39;
+            }
 
             IsStarted = true;
 

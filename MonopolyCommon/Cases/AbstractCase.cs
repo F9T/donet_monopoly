@@ -22,6 +22,7 @@ namespace MonopolyCommon.Cases
     {
         private bool selected;      // Selected state
         protected Random random;    // Random provider
+        private ObservableCollection<Player> players;
 
         /// <summary>
         /// Default constructor
@@ -69,7 +70,15 @@ namespace MonopolyCommon.Cases
         public int Height { get; set; }
 
         [XmlIgnore]
-        public ObservableCollection<Player> Players { get; set; }
+        public ObservableCollection<Player> Players
+        {
+            get => players;
+            set
+            {
+                players = value;
+                OnPropertyChanged(nameof(Players));
+            }
+        }
 
         // --------------------------------------
 

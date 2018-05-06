@@ -104,17 +104,7 @@ namespace MonopolyCommon.Players
         }
 
         [XmlIgnore]
-        public AbstractCase CurrentCase
-        {
-            get
-            {
-                return currentCase;
-            }
-            set
-            {
-                currentCase = value;
-            }
-        }
+        public int CurrentCaseIndex { get; set; }
 
         // --------------------------------------
 
