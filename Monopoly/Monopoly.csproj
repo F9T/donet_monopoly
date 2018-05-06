@@ -96,6 +96,9 @@
     <Compile Include="Views\InfoPlatterView.xaml.cs">
       <DependentUpon>InfoPlatterView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\MessageBoxCustomOk.xaml.cs">
+      <DependentUpon>MessageBoxCustomOk.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\MessageBoxCustom.xaml.cs">
       <DependentUpon>MessageBoxCustom.xaml</DependentUpon>
     </Compile>
@@ -142,6 +145,10 @@
     <Page Include="Views\InfoPlatterView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MessageBoxCustomOk.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\MessageBoxCustom.xaml">
       <SubType>Designer</SubType>

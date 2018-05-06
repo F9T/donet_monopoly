@@ -16,9 +16,9 @@ namespace MonopolyCommon.Cases
         {
         }
 
-        public override void Action(Player _player, Platter _platter)
+        public override string Action(Player _player, Platter _platter)
         {
-            throw new NotImplementedException();
+            return "Voulez vous achetez la station " + Text + " ?";
         }
 
         public override bool IsLegal()

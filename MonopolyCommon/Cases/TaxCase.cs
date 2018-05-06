@@ -16,9 +16,10 @@ namespace MonopolyCommon.Cases
         {
         }
 
-        public override void Action(Player _player, Platter _platter)
+        public override string Action(Player _player, Platter _platter)
         {
-            throw new NotImplementedException();
+            _player.Balance -= 200;
+            return "Vous payer 200 pour vos taxes";
         }
 
         public override bool IsLegal()

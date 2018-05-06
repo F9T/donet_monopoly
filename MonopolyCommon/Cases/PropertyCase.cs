@@ -73,9 +73,9 @@ namespace MonopolyCommon.Cases
             }
         }
 
-        public override void Action(Player _player, Platter _platter)
+        public override string Action(Player _player, Platter _platter)
         {
-            
+            return "Voulez vous acheter la propriété "+ PropertyName + "?";
         }
 
         public override bool IsLegal()

@@ -128,6 +128,18 @@
     <DataTemplate x:Key="JailCaseTemplate" DataType="{x:Type cases:JailCase}">
         <Grid>
             <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageCaseTemplate}" />
+            <ItemsControl ItemsSource="{Binding Players}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Ellipse Fill="{Binding Color}"  Width="20" Height="20"  />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
     </DataTemplate>
     
@@ -136,7 +148,21 @@
     <!-- start STATION CASE template -->
 
     <DataTemplate x:Key="StationCaseTemplate" DataType="{x:Type cases:StationCase}">
-        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource PriceTextImageCaseTemplate}" />
+        <Grid>
+            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource PriceTextImageCaseTemplate}" />
+            <ItemsControl Grid.Row="1" ItemsSource="{Binding Players}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Ellipse Fill="{Binding Color}"  Width="20" Height="20"  />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
     </DataTemplate>
 
     <!-- end STATION CASE template -->
@@ -144,7 +170,21 @@
     <!-- start TAX CASE template -->
 
     <DataTemplate x:Key="TaxCaseTemplate" DataType="{x:Type cases:TaxCase}">
-        <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource PriceTextImageCaseTemplate}" />
+        <Grid>
+            <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource PriceTextImageCaseTemplate}" />
+            <ItemsControl Grid.Row="0" ItemsSource="{Binding Players}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Ellipse Fill="{Binding Color}"  Width="20" Height="20"  />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+        </Grid>
     </DataTemplate>
 
     <!-- end TAX CASE template -->
@@ -154,6 +194,18 @@
     <DataTemplate x:Key="ChestCaseTemplate" DataType="{x:Type cases:ChestCase}">
         <Grid>
             <ContentPresenter Content="{Binding}" ContentTemplate="{StaticResource TextImageCaseTemplate}"></ContentPresenter>
+            <ItemsControl Grid.Row="0" ItemsSource="{Binding Players}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Ellipse Fill="{Binding Color}"  Width="20" Height="20"  />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
     </DataTemplate>
 
@@ -171,6 +223,18 @@
             <Border Background="{Binding Color}" Grid.Row="0"/>
             <TextBlock Text="{Binding PropertyName}" Grid.Row="1" HorizontalAlignment="Center"/>
             <TextBlock Text="{Binding Price}" Grid.Row="2" HorizontalAlignment="Center"/>
+            <ItemsControl Grid.Row="2" ItemsSource="{Binding Players}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Ellipse Fill="{Binding Color}"  Width="20" Height="20"  />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
     </DataTemplate>
     

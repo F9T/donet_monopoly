@@ -16,9 +16,9 @@ namespace MonopolyCommon.Cases
             return;
         }
 
-        public override void Action(Player _player, Platter _platter)
+        public override string Action(Player _player, Platter _platter)
         {
-            return;
+            return "Il ne se passe rien.";
         }
 
         public override bool IsLegal()

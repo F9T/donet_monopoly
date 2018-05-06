@@ -27,7 +27,7 @@ namespace MonopolyCommon.Cases
         }
 
         [XmlAttribute("text")]
-        public string Text
+        public new string Text
         {
             get => text;
             set
@@ -48,9 +48,10 @@ namespace MonopolyCommon.Cases
             }
         }
 
-        public override void Action(Player _player, Platter _platter)
+        public override string Action(Player _player, Platter _platter)
         {
-            
+            _player.Balance += Gain;
+            return "Bravo, vous êtes tombé sur la case départ, vous recevez le double du salaire";
         }
 
         public override bool IsLegal()

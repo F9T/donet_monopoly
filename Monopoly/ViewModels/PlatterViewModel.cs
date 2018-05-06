@@ -14,6 +14,8 @@ using MonopolyCommon.Interfaces;
 using MonopolyCommon.Players;
 
 using System;
+using System.Windows;
+using System.Linq;
 
 namespace Monopoly.ViewModels
 {
@@ -22,6 +24,9 @@ namespace Monopoly.ViewModels
     /// </summary>
     public class PlatterViewModel : IViewModel
     {
+        // PositionIndex to Cases position in WPF
+        IDictionary<int, int> posToWPF = new Dictionary<int, int>();
+
         // The game possess 2 dices to roll
         private Die dieOne;
         private Die dieSecond;
@@ -53,6 +58,8 @@ namespace Monopoly.ViewModels
             turnCount = 0;
             doubleDiceCount = 0;
             doPlayAgain = false;
+
+            FillPosToWPF();
         }
 
         /// <summary>
@@ -105,13 +112,35 @@ namespace Monopoly.ViewModels
                 InfoBulle = "Avancez de " + sum + " cases";
                 Reader(infoBulle);
 
-                Cases[CurrentPlayer.CurrentCaseIndex].Players.Remove(CurrentPlayer);
-                CurrentPlayer.CurrentCaseIndex -= sum;
-                Cases[CurrentPlayer.CurrentCaseIndex].Players.Add(CurrentPlayer);
                 SetNextPlayerTurn();
             }
 
-            // TODO Execute case action
+            // Move
+            AbstractCase currentCase = Cases[CurrentPlayer.CurrentCaseIndex];
+            CurrentPlayer.CurrentCaseIndex = CalculateNextCase(CurrentPlayer.CurrentCaseIndex, sum);
+            AbstractCase nextCase = Cases[CurrentPlayer.CurrentCaseIndex];
+
+            currentCase.Players.Remove(CurrentPlayer);
+            nextCase.Players.Add(CurrentPlayer);
+
+            // Execute case action
+            string result = nextCase.Action(CurrentPlayer, (Platter)Model);
+            if(nextCase.GetType() == typeof(PropertyCase) || nextCase.GetType() == typeof(StationCase)) {
+                MsgBoxYesNo msgbox = new MsgBoxYesNo(result);
+                if ((bool)msgbox.ShowDialog())
+                {
+                    // Todo Buy property
+                }
+            }
+            else
+                new MsgBoxOk(result).ShowDialog();
+
+        }
+
+        private int CalculateNextCase(int firstCaseIndex, int sum)
+        {
+            int firstCasePos = posToWPF.FirstOrDefault(x => x.Value == firstCaseIndex).Key;
+            return posToWPF[(firstCasePos + sum) % 40];
         }
 
         private void SetNextPlayerTurn()
@@ -120,6 +149,58 @@ namespace Monopoly.ViewModels
 
             // Set next player as current
             CurrentPlayer = Players[turnCount % Players.Count];
+        }
+
+        private void FillPosToWPF()
+        {
+            // So ugly but need to be done manually due to editor mapping. Externalize it
+            posToWPF.Add(0, 39);
+
+            posToWPF.Add(1, 38);
+            posToWPF.Add(2, 37);
+            posToWPF.Add(3, 36);
+            posToWPF.Add(4, 35);
+            posToWPF.Add(5, 34);
+            posToWPF.Add(6, 33);
+            posToWPF.Add(7, 32);
+            posToWPF.Add(8, 31);
+            posToWPF.Add(9, 30);
+
+            posToWPF.Add(10, 29);
+
+            posToWPF.Add(11, 27);
+            posToWPF.Add(12, 25);
+            posToWPF.Add(13, 23);
+            posToWPF.Add(14, 21);
+            posToWPF.Add(15, 19);
+            posToWPF.Add(16, 17);
+            posToWPF.Add(17, 15);
+            posToWPF.Add(18, 13);
+            posToWPF.Add(19, 11);
+
+            posToWPF.Add(20, 0);
+
+            posToWPF.Add(21, 1);
+            posToWPF.Add(22, 2);
+            posToWPF.Add(23, 3);
+            posToWPF.Add(24, 4);
+            posToWPF.Add(25, 5);
+            posToWPF.Add(26, 6);
+            posToWPF.Add(27, 7);
+            posToWPF.Add(28, 8);
+            posToWPF.Add(29, 9);
+
+            posToWPF.Add(30, 10);
+
+            posToWPF.Add(31, 12);
+            posToWPF.Add(32, 14);
+            posToWPF.Add(33, 16);
+            posToWPF.Add(34, 18);
+            posToWPF.Add(35, 20);
+            posToWPF.Add(36, 22);
+            posToWPF.Add(37, 24);
+            posToWPF.Add(38, 26);
+            posToWPF.Add(39, 28);
         }
 
         public IModel Model { get; set; }

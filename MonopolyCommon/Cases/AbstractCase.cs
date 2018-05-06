@@ -92,7 +92,7 @@ namespace MonopolyCommon.Cases
         /// </summary>
         /// <param name="_player">current player</param>
         /// <param name="_platter">current platter with all game infos</param>
-        public abstract void Action(Player _player, Platter _platter);
+        public abstract string Action(Player _player, Platter _platter);
 
         /// <summary>
         /// Provide legal access on case
