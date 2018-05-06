@@ -29,7 +29,7 @@
         </Grid.ColumnDefinitions>
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Top" Height="27">
             <TextBlock VerticalAlignment="Center" RenderTransformOrigin="1.133,0.783" Margin="0,0,0,1" Width="286" Height="26" Foreground="Black"/>
-            <TextBox Margin="10,0,0,-20" ToolTip="{Binding PathGame}" MinWidth="200" MaxWidth="231" IsEnabled="False" VerticalAlignment="Bottom" Width="231" Height="49" BorderBrush="{x:Null}" CaretBrush="{x:Null}" SelectionBrush="{x:Null}" FontSize="14" MaxHeight="49" MinHeight="49" Foreground="Black" />
+            <TextBox Margin="10,0,0,-20" ToolTip="{Binding PathGame}" MinWidth="200" MaxWidth="231" VerticalAlignment="Center" Width="231" Height="49" FontSize="14" MaxHeight="49" MinHeight="49" SelectionBrush="Black" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" HorizontalAlignment="Center" Foreground="#FF0F0F0F" Background="#FFFBF9F9" OpacityMask="#FF0E0D0D"/>
             <Button Margin="10,0,0,-22" Content="Charger" Command="{Binding BrowseGameCommand}" Width="105" FontSize="14" Height="49" BorderBrush="{x:Null}" Foreground="White">
                 <Button.Background>
                     <ImageBrush ImageSource="Images/button3.png" Stretch="UniformToFill"/>

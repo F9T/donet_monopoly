@@ -1,15 +1,18 @@
 ﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using MonopolyCommon;
 using MonopolyCommon.Interfaces;
 using MonopolyCommon.Players;
+using Monopoly.Views;
 
 namespace Monopoly.ViewModels
 {
-    public class MainViewModel : AbstractFileManager, IViewModel
+    public class MainViewModel : AbstractFileManager
     {
         private PlatterViewModel platterViewModel;
+
 
         public MainViewModel()
         {
@@ -17,6 +20,8 @@ namespace Monopoly.ViewModels
             //PlatterViewModel.Deserialize(@"D:\HE-ARC\DotNet\Projets\monopoly\classic.xml");
 
             NewGameCommand = new RelayCommand(_param => New(), _param => true);
+
+            QuitGameCommand = new RelayCommand(_param => Close());
         }
 
         protected override void New()
@@ -34,8 +39,22 @@ namespace Monopoly.ViewModels
             }
         }
 
+        /// <summary>
+        /// Close application when user click to quit menu
+        /// </summary>
+        public void CloseWin()
+        {
+            MsgBoxYesNo msgbox = new MsgBoxYesNo("Êtes vous certain de vouloir quitter le jeu?");
+            if ((bool)msgbox.ShowDialog())
+            {
+                Application.Current.Shutdown();
+            }
+
+        }
+
         protected override bool Close()
         {
+            CloseWin();
             return true;
         }
 
@@ -59,8 +78,14 @@ namespace Monopoly.ViewModels
 
         public ICommand NewGameCommand { get; set; }
 
+        /// <summary>
+        /// The command for when user click to quit button
+        /// </summary>
+        public ICommand QuitGameCommand { get; set; }
+
         public void Dispose()
         {
         }
+        
     }
 }

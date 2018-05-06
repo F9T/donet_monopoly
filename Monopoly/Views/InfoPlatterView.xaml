@@ -20,7 +20,7 @@
             <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="139"/>
+            <ColumnDefinition Width="132"/>
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <TextBlock Grid.Row="0" Grid.Column="0" Text="Jeu" TextDecorations="{x:Null}" FontSize="36" FontWeight="Bold" FontFamily="Arial Black"/>
@@ -30,7 +30,7 @@
         <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding PlatterViewModel.CurrentPlayer.Balance}" Style="{StaticResource TextStyle}" FontSize="20" FontFamily="Arial Black" FontWeight="Bold" Foreground="#FFF93BA3"/>
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal">
             <local:DieView Die="{Binding PlatterViewModel.DieOne}" />
-            <local:DieView Margin="5,0,0,0" Die="{Binding PlatterViewModel.DieSecond}" />
+            <local:DieView Margin="5,0,0,0" Die="{Binding PlatterViewModel.DieSecond}" Loaded="DieView_Loaded" />
         </StackPanel>
         <Button Grid.Row="4" Grid.Column="0" Content="Lancer" Command="{Binding PlatterViewModel.RollDiceCommand}" Height="50" Margin="0,0,0,-24" BorderBrush="{x:Null}" Foreground="White" FontSize="18" VerticalAlignment="Bottom">
             <Button.Background>

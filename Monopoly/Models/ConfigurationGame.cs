@@ -109,13 +109,19 @@ namespace Monopoly.Models
         //Path of platter (xml file)
         public string PathGame { get; set; }
 
-        //Collection of color for player
+        /// <summary>
+        /// Collection of color for player
+        /// </summary>
         public ObservableCollection<ColorItem> AvailableColors { get; set; }
 
-        //Colelction of players
+        /// <summary>
+        /// Colelction of players
+        /// </summary>
         public ObservableCollection<Player> Players { get; set; }
 
-        //Selected player
+        /// <summary>
+        /// Selected player
+        /// </summary>
         public Player SelectedPlayer { get; set; }
 
         public void Dispose()

@@ -81,6 +81,9 @@ namespace Monopoly.ViewModels
             }
         }
 
+        /// <summary>
+        /// Cancel game
+        /// </summary>
         private void CancelGame()
         {
             var window = Utilities.GetOwnedWindow();

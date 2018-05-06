@@ -1,12 +1,18 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+//Speech
+using System.Speech;
+using System.Speech.Synthesis;
+using System.Globalization;
+
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using MonopolyCommon;
 using MonopolyCommon.Cases;
 using MonopolyCommon.Interfaces;
 using MonopolyCommon.Players;
+
 using System;
 
 namespace Monopoly.ViewModels
@@ -27,6 +33,8 @@ namespace Monopoly.ViewModels
         private int turnCount;
         private int doubleDiceCount;
         private bool doPlayAgain;
+
+        public SpeechSynthesizer reader = new SpeechSynthesizer();
 
         /// <summary>
         /// Default constructor
@@ -54,6 +62,21 @@ namespace Monopoly.ViewModels
         }
 
         /// <summary>
+        /// Voice reader
+        /// </summary>
+        /// <param name="toRead"></param>
+        public void Reader(String toRead)
+        {
+            //Speech
+            reader.Dispose();
+            reader = new SpeechSynthesizer();
+            //Change default voice
+            reader.SelectVoiceByHints(VoiceGender.Male);
+            reader.SpeakAsync(toRead);
+
+        }
+
+        /// <summary>
         /// Action roll dice for player
         /// </summary>
         public void RollDice()
@@ -70,7 +93,9 @@ namespace Monopoly.ViewModels
             // If number are the same player can re-roll dices
             if (doPlayAgain)
             {
-                InfoBulle = sum+". C'est un double, Relancez";
+                InfoBulle = "Double, Relancez!!";
+
+                Reader(infoBulle);
 
                 doubleDiceCount++;
 
@@ -84,6 +109,7 @@ namespace Monopoly.ViewModels
             else
             {
                 InfoBulle = "Avancez de " + sum + " cases";
+                Reader(infoBulle);
                 SetNextPlayerTurn();
             }
 

@@ -9,5 +9,5 @@
     <UserControl.Resources>
         <converters:DieNumberToSourceConverter x:Key="DieNumberToSourceConverter"/>
     </UserControl.Resources>
-    <Image Source="{Binding Die.NumberRoll, Converter={StaticResource DieNumberToSourceConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:DieView}}}" Width="60" Height="60"/>
+    <Image Source="{Binding Die.NumberRoll, Converter={StaticResource DieNumberToSourceConverter}, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type views:DieView}}}" Width="60" Height="60" OpacityMask="#FFD61313"/>
 </UserControl>

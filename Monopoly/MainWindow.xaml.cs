@@ -20,5 +20,15 @@ namespace Monopoly
         }
 
         public MainViewModel MainViewModel { get; set; }
+
+        private void MenuItem_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
+
+        private void MenuItem_Click_1(object sender, System.Windows.RoutedEventArgs e)
+        {
+
+        }
     }
 }
